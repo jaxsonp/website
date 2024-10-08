@@ -2,44 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-}
+@layer base {
+	* {
+		font-family: monospace;
+		@apply text-light-gray font-mono;
+	}
+	*::after {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+	h1 {
+		@apply text-5xl md:text-6xl my-8 text-white font-bold;
+	}
+
+	h2 {
+		@apply text-3xl my-8 font-bold;
+	}
+
+	h3 {
+		@apply text-2xl font-normal;
+	}
+
+	hr {
+		@apply text-light-gray;
+	}
+
+	a {
+		@apply hover:text-blue;
+	}
+
+	#backdrop {
+		background: rgb(0, 5, 15);
+		background: -moz-linear-gradient(
+			-15deg,
+			rgba(36, 97, 184, 1) 0%,
+			rgba(26, 49, 110, 1) 7%,
+			rgba(5, 26, 69, 1) 15%,
+			rgba(5, 5, 10, 1) 100%
+		);
+		background: -webkit-linear-gradient(
+			-15deg,
+			rgba(36, 97, 184, 1) 0%,
+			rgba(26, 49, 110, 1) 7%,
+			rgba(5, 26, 69, 1) 15%,
+			rgba(5, 5, 10, 1) 100%
+		);
+		background: linear-gradient(
+			-15deg,
+			rgba(36, 97, 184, 1) 0%,
+			rgba(26, 49, 110, 1) 7%,
+			rgba(5, 26, 69, 1) 15%,
+			rgba(5, 5, 10, 1) 100%
+		);
 	}
 }
 
-body {
-	background: rgb(0, 5, 15);
-	background: -moz-linear-gradient(
-		-15deg,
-		rgba(36, 97, 184, 1) 0%,
-		rgba(26, 49, 110, 1) 7%,
-		rgba(5, 26, 69, 1) 15%,
-		rgba(0, 0, 0, 1) 100%
-	);
-	background: -webkit-linear-gradient(
-		-15deg,
-		rgba(36, 97, 184, 1) 0%,
-		rgba(26, 49, 110, 1) 7%,
-		rgba(5, 26, 69, 1) 15%,
-		rgba(0, 0, 0, 1) 100%
-	);
-	background: linear-gradient(
-		-15deg,
-		rgba(36, 97, 184, 1) 0%,
-		rgba(26, 49, 110, 1) 7%,
-		rgba(5, 26, 69, 1) 15%,
-		rgba(0, 0, 0, 1) 100%
-	);
-
-	font-family: Arial, Helvetica, sans-serif;
+@layer components {
 }
 
 @layer utilities {
+	.blurred {
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+	}
 }

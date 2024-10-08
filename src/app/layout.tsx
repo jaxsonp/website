@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceMono = Space_Mono({
-	weight: "400",
-	style: ["normal", "italic"],
-	subsets: ["latin"],
-});
+import { consolas } from "./fonts";
 
 export const metadata: Metadata = {
 	title: "Jaxson Pahukula's website",
@@ -20,7 +15,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${spaceMono.className} antialiased w-screen h-screen`}>{children}</body>
+			<body className={`${consolas.variable} antialiased w-screen h-screen`}>
+				<div id="backdrop" className="fixed w-full h-full -z-50" />
+				{children}
+			</body>
 		</html>
 	);
 }
