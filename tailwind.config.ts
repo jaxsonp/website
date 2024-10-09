@@ -8,8 +8,8 @@ const config: Config = {
 	],
 	theme: {
 		colors: {
-			white: "#ffffff",
-			"light-gray": "#eeeeee",
+			white: "#e3e8ff",
+			"light-gray": "#c4ceff",
 			blue: "dodgerblue",
 			black: "#000000",
 		},
@@ -18,18 +18,17 @@ const config: Config = {
 		},
 		extend: {
 			boxShadow: {
-				light: "0 6px 32px -12px rgba(255, 255, 255, 0.2)",
-				"sm-light": "0 4px 16px -4px rgba(255, 255, 255, 0.1)",
+				light: "0 6px 32px -12px rgba(255, 255, 255, 0.15)",
 			},
 			dropShadow: {
-				light: "0 6px 32px -12px rgba(255, 255, 255, 0.2)",
+				light: "0 6px 32px -12px rgba(255, 255, 255, 0.15)",
 			},
 		},
 		screens: {
 			sm: "414px",
 			md: "768px",
 			lg: "1024px",
-			xl: "1280px",
+			xl: "1420px",
 		},
 	},
 	plugins: [],

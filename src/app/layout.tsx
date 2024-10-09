@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { useEffect } from "react";
 
 import "./globals.css";
 import { consolas } from "@lib/fonts";
