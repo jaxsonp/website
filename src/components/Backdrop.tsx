@@ -25,5 +25,5 @@ export default function Backdrop() {
 			resizeHandler();
 		}
 	});
-	return <canvas id="backdrop" className="fixed w-screen h-screen -z-50" />;
+	return <canvas id="backdrop" className="fixed top-0 left-0 w-screen h-screen -z-50" />;
 }

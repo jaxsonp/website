@@ -10,7 +10,7 @@ export default function Home() {
 			</div>
 			<div className="flex items-center justify-center w-full h-full">
 				<div className="bg-gradient-to-l from-black/30 bg-opacity-30 h-3/4 w-[12.5%]" />
-				<div className="blurred bg-black/30 border-y-[1px] border-black p-10 w-3/4 h-3/4 flex gap-12">
+				<div className="blurred bg-black/30 border-y-[1px] border-black p-10 w-3/4 h-3/4 flex items-center gap-12">
 					<div className="scale-0 hidden lg:block lg:scale-100">
 						<IntroCard />
 					</div>
@@ -24,7 +24,7 @@ export default function Home() {
 
 function IntroCard() {
 	return (
-		<section className="lg:bg-black/20 min-w-[25vw] rounded-2xl lg:shadow-light px-12 flex h-full flex-col items-center">
+		<section className="lg:bg-black/20 rounded-2xl lg:shadow-light p-10 md:pb-0 lg:pt-0 max-h-[600px] flex flex-col items-center">
 			<Image
 				className="rounded-full border-2 my-4"
 				src={headshot.src}
@@ -40,7 +40,7 @@ function IntroCard() {
 					Pahukula
 				</h1>
 			</div>
-			<div className="text-xl gap-2 flex flex-col">
+			<div className="text-xl grow flex flex-col justify-center md:gap-2 xl:gap-4 mb-8">
 				<a href="/resume.pdf">My Resume 🗋</a>
 				<a href="mailto:jaxpahu@gmail.com">jaxpahu@gmail.com 🖂</a>
 				<a href="https://github.com/jaxsonp">Github {">"}</a>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { useEffect } from "react";
 
 import "./globals.css";
-import { consolas } from "./fonts";
+import { consolas } from "@lib/fonts";
 
-import Backdrop from "@lib/components/Backdrop";
+import Backdrop from "@components/Backdrop";
 
 export const metadata: Metadata = {
 	title: "Jaxson Pahukula's website",
@@ -19,8 +19,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${consolas.variable} antialiased w-screen h-screen`}>
-				<Backdrop />
 				{children}
+				<Backdrop />
 			</body>
 		</html>
 	);
