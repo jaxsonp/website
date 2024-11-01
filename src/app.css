@@ -2,7 +2,28 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@layer utilities {
+@layer base {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		@apply font-mono text-light-gray;
+	}
+
+	h1 {
+		@apply text-6xl text-white;
+	}
+
+	h2 {
+		@apply text-4xl text-white;
+	}
+
+	h3 {
+		@apply text-3xl text-white;
+	}
+}
+
+@layer components {
 	#background {
 		background: rgb(0, 5, 15);
 		background: -moz-linear-gradient(
@@ -10,21 +31,37 @@
 			rgba(36, 97, 184, 1) 0%,
 			rgba(26, 49, 110, 1) 7%,
 			rgba(5, 26, 69, 1) 15%,
-			rgba(5, 5, 10, 1) 100%
+			rgba(15, 15, 20, 1) 100%
 		);
 		background: -webkit-linear-gradient(
 			-15deg,
 			rgba(36, 97, 184, 1) 0%,
 			rgba(26, 49, 110, 1) 7%,
 			rgba(5, 26, 69, 1) 15%,
-			rgba(5, 5, 10, 1) 100%
+			rgba(15, 15, 20, 1) 100%
 		);
 		background: linear-gradient(
 			-15deg,
 			rgba(36, 97, 184, 1) 0%,
 			rgba(26, 49, 110, 1) 7%,
 			rgba(5, 26, 69, 1) 15%,
-			rgba(5, 5, 10, 1) 100%
+			rgba(15, 15, 20, 1) 100%
 		);
+	}
+}
+
+@layer utilities {
+	.debug {
+		border: 1px solid red;
+	}
+
+	.black-glass {
+		background: rgba(0, 0, 0, 0.3);
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+	}
+
+	.clip-left {
+		clip-path: rect(-50% 0 150% 150%);
 	}
 }

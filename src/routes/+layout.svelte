@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-
 	// stylin
 	import '../app.css';
 
@@ -28,9 +27,8 @@
 </script>
 
 <canvas id="background" class="fixed left-0 top-0 -z-50 h-full w-full"></canvas>
-{@render children()}
-<footer id="footer" class="flex justify-end">
-	<div class="rounded-t-md bg-black">
-		<p class="text-gray mx-1 px-2 text-center italic">© 2024 Jaxson Pahukula</p>
-	</div>
-</footer>
+<div class="flex w-full justify-center">
+	<main class="mx-4 h-screen w-full lg:m-0 lg:w-[900px] xl:w-[1100px]">
+		{@render children()}
+	</main>
+</div>
