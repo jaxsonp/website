@@ -7,12 +7,15 @@ export default {
 		colors: {
 			white: '#e5eaff',
 			'light-gray': '#c4ceff',
-			blue: 'dodgerblue',
-			black: '#101010'
+			primary: 'dodgerblue',
+			secondary: '#709775',
+			black: '#101010',
+			transparent: 'transparent'
 		},
-		/*fontFamily: {
-			mono: ['var(--font-consolas)', 'mono']
-		},*/
+		fontFamily: {
+			mono: ['monospace'],
+			serif: ['serif']
+		},
 		screens: {
 			sm: '414px',
 			md: '768px',
