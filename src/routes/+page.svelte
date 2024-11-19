@@ -56,15 +56,15 @@
 				class="w-[150px] rounded-full border-2 border-black shadow-light shadow-white/20 md:w-[200px] lg:w-1/2"
 				alt="Me"
 			/>
-			<div class="mb-4 mt-8">
-				<p class="text-xl text-white">Hi, I'm</p>
+			<div class="mb-4 mt-8 lg:mt-2 xl:mt-8">
+				<p class="indent-0 text-xl text-white">Hi, I'm</p>
 				<h1 class="text-6xl font-bold underline decoration-primary decoration-8 underline-offset-2">
 					Jaxson<br />Pahukula
 				</h1>
 			</div>
 			<div class="mb-2 mt-4 flex items-center gap-1">
 				<LocationIcon class="inline h-5 text-light-gray" />
-				<p class="inline text-xl">Maui, HI</p>
+				<p class="inline indent-0 text-xl">Maui, HI</p>
 			</div>
 			<div
 				class="black-glass my-2 flex flex-col items-start gap-y-1 rounded-xl p-4 px-10 *:text-xl lg:bg-transparent lg:p-0 lg:filter-none"
@@ -91,24 +91,22 @@
 		<div class="hidden min-w-[225px] lg:block xl:min-w-[275px]"></div>
 		<div class="flex w-full flex-col py-8 pl-8 pr-12 lg:justify-center">
 			<!-- Main page content -->
+			<div class="mb-4 md:mt-4 md:px-12 lg:px-0 xl:px-10">
+				<p class="leading-tight md:text-lg">
+					Hi, I'm Jaxson, currently a computer science student at Purdue University. I'm passionate
+					about programming, making things, volleyball, and I enjoy playing music too. Welcome to my
+					homepage!
+				</p>
+			</div>
 			{#snippet NavItem(text: string, href: string, Icon: Component)}
 				<a
 					{href}
-					class="group flex items-center space-x-4 py-4 text-light-gray hover:scale-105 md:my-2"
+					class="my-1 flex items-center py-2 text-3xl text-light-gray hover:scale-105 hover:text-primary md:text-4xl lg:text-3xl xl:text-4xl"
 				>
-					<Icon class="w-8 group-hover:text-primary md:w-10" />
-					<p class="text-3xl group-hover:text-primary md:text-4xl lg:text-3xl xl:text-4xl">
-						{text}
-					</p>
+					<Icon class="mr-4 w-8 md:w-10" />
+					{text}
 				</a>
 			{/snippet}
-			<div class="mb-4 md:mt-16 lg:px-4 xl:px-10">
-				<p class="indent-8 leading-6 md:text-xl">
-					Hi 👋 I'm Jaxson, currently a computer science student at Purdue University. I'm
-					passionate about programming and software development, and I enjoy playing music too.
-					Welcome to my homepage!
-				</p>
-			</div>
 			<SectionTitle id="about-me">About Me</SectionTitle>
 			<div class=" my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
 				{@render NavItem('Intro', './about#intro', PersonIcon)}
