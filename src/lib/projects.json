@@ -1,0 +1,72 @@
+{
+	"featured": [
+		{
+			"title": "DIY Graphics Pipeline",
+			"thumbnailFile": "cs334-graphics.png",
+			"description": "A homemade 3D rendering pipeline, written in C++.\nI started with software rendering, implementing triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more from scratch. I then refactored the program, switching to hardware rendering with OpenGL, and also added shader support.\nWritten for Purdue's CS 33400, Intro to Computer Graphics.",
+			"tags": ["C++"],
+			"links": ["https://github.com/jaxsonp/CS334-graphics-pipeline"]
+		},
+		{
+			"title": "FactoryScript",
+			"thumbnailFile": "factoryscript.png",
+			"description": "The world's number one M.O.P. (Manufacturing Oriented Programming) language, FactoryScript is an interpreted esolang inspired by the industrial revolution.\nPrograms (factories) are graphs with nodes (stations) connected by Unicode box characters (conveyor belts).",
+			"tags": ["Rust"],
+			"links": ["https://github.com/jaxsonp/FactoryScript", "https://factoryscript.readthedocs.io/"]
+		}
+	],
+	"all": [
+		{
+			"title": "sci-calc",
+			"thumbnailFile": "sci-calc.png",
+			"description": "An easy to use, fully functional scientific calculator library and CLI. Uses syntax tree parsing for robust error handling. Also features comprehensive built-in functions, variable recall, and more.",
+			"tags": ["Rust"],
+			"links": ["https://github.com/jaxsonp/sci-calc", "https://crates.io/crates/sci-calc"]
+		},
+		{
+			"title": "Beat Ballot",
+			"thumbnailFile": "beat-ballot.png",
+			"description": "Create collaborative spotify playlists with your friends by voting on which songs to add or remove. MUI + React on the frontend, Flask + SQLite on the backend. Created in 36 hours for the Boilermake XI hackathon.",
+			"tags": ["React", "Python", "Hackathon"],
+			"links": [
+				"https://github.com/jaxsonp/beat-ballot",
+				"https://devpost.com/software/beatballot-bnzxu7"
+			]
+		},
+		{
+			"title": "CHIP-8 emulator",
+			"thumbnailFile": "chip-8.png",
+			"description": "A CHIP-8 interpreter written from scratch in rust, emulating the original COSMAC VIP interpreter. Includes an elementary assembler and example ROMS, including space invaders and snake, a clock, and more.",
+			"tags": ["Rust"],
+			"links": ["https://github.com/jaxsonp/CHIP-8"]
+		},
+		{
+			"title": "This website",
+			"thumbnailFile": "my-website.png",
+			"description": "",
+			"tags": ["Svelte"],
+			"links": ["https://jaxsonp.com", "https://github.com/jaxsonp/website"]
+		},
+		{
+			"title": "Docker Dash",
+			"description": "A proof-of-concept dashboard for administrators to manage containerized applications on a server/cluster. I worked on the backend of this web app during my internship at ARL Maui.",
+			"thumbnailFile": "docker-dash.jpeg",
+			"links": ["https://github.com/jaxsonp/docker-dash"],
+			"tags": ["Python"]
+		},
+		{
+			"title": "The Holy Bible mod",
+			"description": "A WIP Minecraft mod that adds a functional Bible into Minecraft.",
+			"thumbnailFile": "bible-mod.png",
+			"links": ["https://github.com/jaxsonp/the-holy-bible-mc"],
+			"tags": ["Java", "Minecraft"]
+		},
+		{
+			"title": "rs-cube",
+			"description": "Simply a rotating 3d cube in your terminal",
+			"thumbnailFile": "rs-cube.gif",
+			"links": ["https://github.com/jaxsonp/rs-cube"],
+			"tags": ["Rust"]
+		}
+	]
+}

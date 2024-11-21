@@ -22,8 +22,12 @@
 		@apply text-3xl text-white;
 	}
 
+	h4 {
+		@apply text-2xl text-white;
+	}
+
 	p {
-		@apply indent-8 text-base text-light-gray;
+		@apply text-base text-light-gray;
 	}
 
 	a {
@@ -32,6 +36,10 @@
 
 	hr {
 		@apply h-[2px] rounded-full border-none bg-secondary;
+	}
+
+	img {
+		@apply italic text-light-gray;
 	}
 }
 
@@ -73,7 +81,21 @@
 		backdrop-filter: blur(2px);
 	}
 
+	.underline-accent {
+		@apply underline decoration-primary decoration-8 underline-offset-2;
+	}
+
 	.clip-left {
+		/* Clips anything off the left border of a div*/
 		clip-path: xywh(0 -25% 125% 150%);
+	}
+
+	.transparent-gradient-left {
+		-webkit-mask-image: linear-gradient(to left, black 25%, transparent 100%);
+		mask-image: linear-gradient((to left, black 25%, transparent 100%));
+	}
+	.transparent-gradient-bottom {
+		-webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+		mask-image: linear-gradient((to bottom, black 25%, transparent 100%));
 	}
 }

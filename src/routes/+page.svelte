@@ -18,6 +18,7 @@
 	import FacebookIcon from '$lib/assets/icons/FacebookIcon.svelte';
 	import PeopleIcon from '$lib/assets/icons/PeopleIcon.svelte';
 	import TelescopeIcon from '$lib/assets/icons/TelescopeIcon.svelte';
+	import LeetcodeIcon from '$lib/assets/icons/LeetcodeIcon.svelte';
 
 	let socials_popup_visibile = $state(false);
 	let show_socials_popup = () => {
@@ -48,7 +49,7 @@
 		>
 			<!-- side card shadow -->
 			<div
-				class="clip-left -z-10 hidden h-full rounded-r-2xl shadow-light shadow-white/20 lg:absolute lg:left-[100px] lg:top-0 lg:block lg:w-[225px] xl:w-[275px]"
+				class="clip-left -z-10 hidden h-full rounded-r-2xl shadow-light shadow-white/25 lg:absolute lg:left-[100px] lg:top-0 lg:block lg:w-[225px] xl:w-[275px]"
 			></div>
 			<!-- side card content -->
 			<img
@@ -57,14 +58,14 @@
 				alt="Me"
 			/>
 			<div class="mb-4 mt-8 lg:mt-2 xl:mt-8">
-				<p class="indent-0 text-xl text-white">Hi, I'm</p>
-				<h1 class="text-6xl font-bold underline decoration-primary decoration-8 underline-offset-2">
+				<p class="text-xl text-white">Hi, I'm</p>
+				<h1 class="underline-accent text-6xl font-bold">
 					Jaxson<br />Pahukula
 				</h1>
 			</div>
 			<div class="mb-2 mt-4 flex items-center gap-1">
 				<LocationIcon class="inline h-5 text-light-gray" />
-				<p class="inline indent-0 text-xl">Maui, HI</p>
+				<p class="inline text-xl">Maui, HI</p>
 			</div>
 			<div
 				class="black-glass my-2 flex flex-col items-start gap-y-1 rounded-xl p-4 px-10 *:text-xl lg:bg-transparent lg:p-0 lg:filter-none"
@@ -72,13 +73,13 @@
 				{#snippet bullet()}
 					<span class="font-bold text-secondary">{'> '}</span>
 				{/snippet}
-				<a href="mailto:jaxpahu@gmail.com" class="hover:text-primary">
+				<a href="mailto:jaxpahu@gmail.com" target="_blank" class="hover:text-primary">
 					{@render bullet()}<span class="underline">jaxpahu@gmail.com</span>
 				</a>
-				<a href="https://github.com/jaxsonp" class="hover:text-primary">
+				<a href="https://github.com/jaxsonp" target="_blank" class="hover:text-primary">
 					{@render bullet()} Github
 				</a>
-				<a href="https://www.linkedin.com/in/jaxsonp/" class="hover:text-primary">
+				<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank" class="hover:text-primary">
 					{@render bullet()} LinkedIn
 				</a>
 				<a href="./#socials" class="italic text-light-gray hover:text-primary">
@@ -92,7 +93,7 @@
 		<div class="flex w-full flex-col py-8 pl-8 pr-12 lg:justify-center">
 			<!-- Main page content -->
 			<div class="mb-4 md:mt-4 md:px-12 lg:px-0 xl:px-10">
-				<p class="leading-tight md:text-lg">
+				<p class="indent-8 leading-tight md:text-lg">
 					Hi, I'm Jaxson, currently a computer science student at Purdue University. I'm passionate
 					about programming, making things, volleyball, and I enjoy playing music too. Welcome to my
 					homepage!
@@ -109,13 +110,13 @@
 			{/snippet}
 			<SectionTitle id="about-me">About Me</SectionTitle>
 			<div class=" my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
-				{@render NavItem('Intro', './about#intro', PersonIcon)}
+				{@render NavItem('Intro', './about', PersonIcon)}
 				{@render NavItem('Experience', './about#experience', BriefcaseIcon)}
 				{@render NavItem('Resume', './resume.pdf', FileIcon)}
 			</div>
 			<SectionTitle id="projects">Projects</SectionTitle>
 			<div class="my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
-				{@render NavItem('Favorites', './projects#favorites', SparkleIcon)}
+				{@render NavItem('Featured', './projects', SparkleIcon)}
 				{@render NavItem('All', './projects#all', GridIcon)}
 			</div>
 			<SectionTitle id="">Other</SectionTitle>
@@ -136,8 +137,12 @@
 				<h1 class="italic">Socials</h1>
 				<hr class="mb-8 mt-4 bg-primary" />
 				{#snippet social_link(text: string, href: string, Icon: Component)}
-					<a {href} class="flex items-center gap-4 p-[3px] text-xl hover:text-secondary">
-						<Icon class="h-6" />
+					<a
+						{href}
+						target="_blank"
+						class="flex items-center gap-4 p-[3px] text-xl hover:text-secondary"
+					>
+						<Icon class="h-6 w-6" />
 						{text}
 					</a>
 				{/snippet}
@@ -149,6 +154,7 @@
 					)}
 					{@render social_link('Github', 'https://www.instagram.com/jaxson.mp/', GithubIcon)}
 					{@render social_link('Instagram', 'https://www.instagram.com/jaxson.mp/', InstagramIcon)}
+					{@render social_link('Leetcode', 'https://leetcode.com/colbyjack/', LeetcodeIcon)}
 					{@render social_link('LinkedIn', 'https://www.linkedin.com/in/jaxsonp/', LinkedInIcon)}
 				</div>
 			</div>
