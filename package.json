@@ -35,6 +35,7 @@
 	"dependencies": {
 		"csv-parse": "^5.5.6",
 		"fs": "^0.0.1-security",
-		"path": "^0.12.7"
+		"path": "^0.12.7",
+		"svelte-vertical-timeline": "github:jaxsonp/svelte-vertical-timeline#dist"
 	}
 }

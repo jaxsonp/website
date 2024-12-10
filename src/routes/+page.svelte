@@ -94,9 +94,9 @@
 			<!-- Main page content -->
 			<div class="mb-4 md:mt-4 md:px-12 lg:px-0 xl:px-10">
 				<p class="indent-8 leading-tight md:text-lg">
-					Hi, I'm Jaxson, currently a computer science student at Purdue University. I'm passionate
-					about programming, making things, volleyball, and I enjoy playing music too. Welcome to my
-					homepage!
+					Hi, I'm Jaxson👋. I'm from Hawai'i, and I'm currently a computer science student at Purdue
+					University. I'm passionate about programming, making things, volleyball, and I enjoy
+					playing music too. Welcome to my homepage!
 				</p>
 			</div>
 			{#snippet NavItem(text: string, href: string, Icon: Component)}
@@ -112,7 +112,7 @@
 			<div class=" my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
 				{@render NavItem('Intro', './about', PersonIcon)}
 				{@render NavItem('Experience', './about#experience', BriefcaseIcon)}
-				{@render NavItem('Resume', './resume.pdf', FileIcon)}
+				{@render NavItem('Resume', './Resume-Jaxson-Pahukula.pdf', FileIcon)}
 			</div>
 			<SectionTitle id="projects">Projects</SectionTitle>
 			<div class="my-2 grid grid-cols-1 place-items-center md:grid-cols-2">

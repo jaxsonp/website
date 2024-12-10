@@ -5,10 +5,10 @@ export default {
 
 	theme: {
 		colors: {
+			primary: 'rgb(var(--color-primary))',
+			secondary: 'rgb(var(--color-secondary))',
 			white: '#e5eaff',
 			'light-gray': '#b2b6cf',
-			primary: 'dodgerblue',
-			secondary: '#709775',
 			black: '#101010',
 			transparent: 'transparent',
 		},
@@ -31,6 +31,9 @@ export default {
 			},
 			borderWidth: {
 				'1': '1px',
+			},
+			listStyleType: {
+				square: 'square',
 			},
 		},
 	},
