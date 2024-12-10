@@ -3,14 +3,14 @@
 		{
 			"title": "DIY Graphics Pipeline",
 			"thumbnailFile": "cs334-graphics.png",
-			"description": "A homemade 3D rendering pipeline, written in C++.\nI started with software rendering, implementing triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more from scratch. I then refactored the program, switching to hardware rendering with OpenGL, and also added shader support.\nWritten for Purdue's CS 33400, Intro to Computer Graphics.",
+			"description": "A homemade 3D rendering pipeline, written in C++ for Purdue's CS 33400, Intro to Computer Graphics.\nI started with software rendering, implementing triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more from scratch.\nI then refactored the program, switching to hardware rendering with OpenGL and eventually implementing the same features with shaders.",
 			"tags": ["C++"],
 			"links": ["https://github.com/jaxsonp/CS334-graphics-pipeline"]
 		},
 		{
 			"title": "FactoryScript",
 			"thumbnailFile": "factoryscript.png",
-			"description": "The world's number one M.O.P. (Manufacturing Oriented Programming) language, FactoryScript is an interpreted esolang inspired by the industrial revolution.\nPrograms (factories) are graphs with nodes (stations) connected by Unicode box characters (conveyor belts).",
+			"description": "FactoryScript is an interpreted, graph-based esolang (esoteric programming language). It is mostly a gag language, and the interpreter is written in Rust.\nIn FactoryScript, programs (factories) are graphs where the nodes (stations) are connected by Unicode box characters (conveyor belts).",
 			"tags": ["Rust"],
 			"links": ["https://github.com/jaxsonp/FactoryScript", "https://factoryscript.readthedocs.io/"]
 		}

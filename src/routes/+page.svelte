@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, type Component } from 'svelte';
-	import { goto } from '$app/navigation';
+	import { pushState } from '$app/navigation';
 
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 
@@ -19,6 +19,8 @@
 	import PeopleIcon from '$lib/assets/icons/PeopleIcon.svelte';
 	import TelescopeIcon from '$lib/assets/icons/TelescopeIcon.svelte';
 	import LeetcodeIcon from '$lib/assets/icons/LeetcodeIcon.svelte';
+	import ContactIcon from '$lib/assets/icons/ContactIcon.svelte';
+	import EmailIcon from '$lib/assets/icons/EmailIcon.svelte';
 
 	let socials_popup_visibile = $state(false);
 	let show_socials_popup = () => {
@@ -92,33 +94,36 @@
 		<div class="hidden min-w-[225px] lg:block xl:min-w-[275px]"></div>
 		<div class="flex w-full flex-col py-8 pl-8 pr-12 lg:justify-center">
 			<!-- Main page content -->
-			<SectionTitle id="about-me">About Me</SectionTitle>
-			<p class="indent-8 md:mt-4 md:px-12 md:text-lg md:leading-tight lg:px-4 xl:px-10">
-				Hi, I'm Jaxson👋. I'm from Hawai'i, and I'm currently a computer science student at Purdue
-				University. I'm passionate about programming, playing music, and volleyball. Welcome to my
-				homepage!
-			</p>
 			{#snippet NavItem(text: string, href: string, Icon: Component)}
 				<a
 					{href}
-					class="my-1 flex items-center py-2 text-3xl text-light-gray hover:scale-105 md:text-4xl lg:text-3xl xl:text-4xl"
+					class="my-1 flex items-center justify-self-center py-2 text-3xl text-light-gray hover:scale-105 md:text-4xl lg:text-3xl xl:text-4xl"
 				>
 					<Icon class="mr-4 w-8 md:w-10" />
 					{text}
 				</a>
 			{/snippet}
-			<div class=" my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
-				{@render NavItem('Intro', './about', PersonIcon)}
-				{@render NavItem('Experience', './about#experience', BriefcaseIcon)}
+			<SectionTitle id="about">About Me</SectionTitle>
+			<p class="mt-4 indent-8 md:px-12 lg:px-4 xl:px-10">
+				I'm Jaxson, a computer science student from Hawai'i studying at Purdue University. I'm
+				passionate about coding, playing music, and volleyball. Welcome to my homepage!
+			</p>
+			<div class="flex justify-center">
+				{@render NavItem('About Me', './about', PersonIcon)}
+			</div>
+			<SectionTitle id="about-me">Career</SectionTitle>
+			<div class="my-2 grid grid-cols-1 md:grid-cols-2">
+				{@render NavItem('Overview', './career', ContactIcon)}
+				{@render NavItem('Experience', './career#experience', BriefcaseIcon)}
 				{@render NavItem('Resume', './Resume-Jaxson-Pahukula.pdf', FileIcon)}
 			</div>
 			<SectionTitle id="projects">Projects</SectionTitle>
-			<div class="my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
+			<div class="my-2 grid grid-cols-1 md:grid-cols-2">
 				{@render NavItem('Featured', './projects', SparkleIcon)}
 				{@render NavItem('All', './projects#all', GridIcon)}
 			</div>
 			<SectionTitle id="">Other</SectionTitle>
-			<div class="my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
+			<div class="my-2 grid grid-cols-1 md:grid-cols-2">
 				{@render NavItem('Socials', './#socials', PeopleIcon)}
 				{@render NavItem('Stargaze', './stargaze', TelescopeIcon)}
 			</div>
@@ -145,6 +150,7 @@
 					</a>
 				{/snippet}
 				<div class="m-4 flex flex-col">
+					{@render social_link('Gmail', 'mailto:jaxpahu@gmail.com', EmailIcon)}
 					{@render social_link(
 						'Facebook',
 						'https://www.facebook.com/profile.php?id=100086394281851',
