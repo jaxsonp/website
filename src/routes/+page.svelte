@@ -73,16 +73,16 @@
 				{#snippet bullet()}
 					<span class="font-bold text-secondary">{'> '}</span>
 				{/snippet}
-				<a href="mailto:jaxpahu@gmail.com" target="_blank" class="hover:text-primary">
+				<a href="mailto:jaxpahu@gmail.com" target="_blank">
 					{@render bullet()}<span class="underline">jaxpahu@gmail.com</span>
 				</a>
-				<a href="https://github.com/jaxsonp" target="_blank" class="hover:text-primary">
+				<a href="https://github.com/jaxsonp" target="_blank">
 					{@render bullet()} Github
 				</a>
-				<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank" class="hover:text-primary">
+				<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank">
 					{@render bullet()} LinkedIn
 				</a>
-				<a href="./#socials" class="italic text-light-gray hover:text-primary">
+				<a href="./#socials" class="italic text-light-gray">
 					{@render bullet()} More socials...
 				</a>
 			</div>
@@ -92,23 +92,21 @@
 		<div class="hidden min-w-[225px] lg:block xl:min-w-[275px]"></div>
 		<div class="flex w-full flex-col py-8 pl-8 pr-12 lg:justify-center">
 			<!-- Main page content -->
-			<div class="mb-4 md:mt-4 md:px-12 lg:px-0 xl:px-10">
-				<p class="indent-8 leading-tight md:text-lg">
-					Hi, I'm Jaxson👋. I'm from Hawai'i, and I'm currently a computer science student at Purdue
-					University. I'm passionate about programming, making things, volleyball, and I enjoy
-					playing music too. Welcome to my homepage!
-				</p>
-			</div>
+			<SectionTitle id="about-me">About Me</SectionTitle>
+			<p class="indent-8 md:mt-4 md:px-12 md:text-lg md:leading-tight lg:px-4 xl:px-10">
+				Hi, I'm Jaxson👋. I'm from Hawai'i, and I'm currently a computer science student at Purdue
+				University. I'm passionate about programming, playing music, and volleyball. Welcome to my
+				homepage!
+			</p>
 			{#snippet NavItem(text: string, href: string, Icon: Component)}
 				<a
 					{href}
-					class="my-1 flex items-center py-2 text-3xl text-light-gray hover:scale-105 hover:text-primary md:text-4xl lg:text-3xl xl:text-4xl"
+					class="my-1 flex items-center py-2 text-3xl text-light-gray hover:scale-105 md:text-4xl lg:text-3xl xl:text-4xl"
 				>
 					<Icon class="mr-4 w-8 md:w-10" />
 					{text}
 				</a>
 			{/snippet}
-			<SectionTitle id="about-me">About Me</SectionTitle>
 			<div class=" my-2 grid grid-cols-1 place-items-center md:grid-cols-2">
 				{@render NavItem('Intro', './about', PersonIcon)}
 				{@render NavItem('Experience', './about#experience', BriefcaseIcon)}

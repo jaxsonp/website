@@ -162,7 +162,7 @@
 		{/each}
 	</div>
 </div>
-<a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-3xl hover:text-primary">
+<a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-3xl">
 	{'<'}
 	<HomeIcon class="h-12" />
 </a>

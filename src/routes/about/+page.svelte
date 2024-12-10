@@ -10,12 +10,38 @@
 <div class="black-glass mt-12 h-full w-full rounded-t-3xl border-x-1 border-x-black p-4 lg:px-16">
 	<h1 class="underline-accent my-8 text-center font-bold">About Me</h1>
 	<SectionTitle id="intro">Introduction</SectionTitle>
+	<div class="mx-4 md:mx-16 xl:mx-32">
+		<p>
+			Hi, I'm Jaxson Pahukula. I was born in Oregon and raised in Hawai'i on the island of Maui. I
+			am mixed Hawaiian, white, and other asian ethnicities. I love to code, and am currently
+			enjoying getting my B.S in Computer Science from Purdue University in Indiana, and expecting
+			to graduate in May 2025.
+		</p>
+		<p>
+			As for my free time, I love working on <a href="/projects" class="italic underline"
+				>personal projects</a
+			>, playing music, playing volleyball, and touching grass in general. My main instrument is the
+			drums, but I am learning the bass and I am planning to pick up some more instruments when I
+			get the chance. I mainly play worship music, but also casually play genres like pop, R&B, and
+			alt stuff.
+		</p>
+		<div class="image-container mb-8 mt-4">
+			<img alt="Me playin drums" src="/pics/drums.jpg" />
+			<img alt="Gon fishin" src="/pics/fishin.jpg" />
+		</div>
+		<p>I also have a cat, Simba</p>
+		<div class="image-container">
+			<img alt="Simba, my cat" src="/pics/cat1.jpg" />
+			<img alt="Simba again" src="/pics/cat2.jpg" class="m-8" />
+			<img alt="Simba again 2" src="/pics/cat3.jpg" />
+		</div>
+	</div>
 	<SectionTitle id="experience">Experience</SectionTitle>
 	<div id="timeline" class="xl:mx-16">
 		<Timeline position="right" style="padding: 0" center={false}>
 			<TimelineEntry time="Summer 2024">
-				<h3>VICEROY Maven Research Intern</h3>
-				<h4>Griffiss Institute - Rome, NY</h4>
+				<h3>Griffiss Institute</h3>
+				<h4>VICEROY Maven Research Intern - Rome, NY</h4>
 				<p>
 					As part of the VICEROY Maven intern program, I participated in cybersecurity lessons with
 					various Department of Defense (DoD) personnel on Air Force and DoD-oriented cyber
@@ -36,22 +62,17 @@
 				</div>
 			</TimelineEntry>
 			<TimelineEntry time="Aug 2023 - May 2024">
-				<h3>Undergraduate Researcher</h3>
-				<h4>The Data Mine - Purdue University</h4>
+				<h3>The Data Mine - Purdue University</h3>
+				<h4>Undergraduate Researcher</h4>
 				<p>
-					<img
-						class="float-right max-h-[175px]"
-						src="/pics/IMG_8346.jpg"
-						alt="Final poster for our research project"
-					/>
-					I collaborated with Raytheon Technologies and other students to create a hard drive remaining-useful-life
-					prediction model. Together we learned and applied various data science techniques such as anomaly
-					detection, k-means clustering, LSTM models, and more.
+					I collaborated with Raytheon Technologies and other students to create a hard drive
+					remaining-useful-life prediction model. Together we learned and applied various data
+					science techniques such as anomaly detection, k-means clustering, LSTM models, and more.
 				</p>
 			</TimelineEntry>
 			<TimelineEntry time="Summer 2023">
-				<h3>Software Dev. Assistant/Intern</h3>
-				<h4>Applied Research Laboratory at UH - Kihei, HI</h4>
+				<h3>Applied Research Laboratory at UH</h3>
+				<h4>Software Dev. Assistant/Intern - Kihei, HI</h4>
 				<p>
 					I had a great time collaborating on a team researching new technologies for portal
 					software at MHPCC, the DoD's vanguard high performance computing center. With my brother,
@@ -71,8 +92,8 @@
 				</p>
 			</TimelineEntry>
 			<TimelineEntry time="Jan-Dec 2023">
-				<h3>Lab Instructor/TA</h3>
-				<h4>Data Science Labs - Purdue University</h4>
+				<h3>Data Science Labs, Purdue University</h3>
+				<h4>Lab Instructor/TA</h4>
 				<p>
 					As a lab instructor, I taught students to apply concepts from Calculus I and II to basic
 					data science problems in a lab setting. I led students in engaging lab projects using
@@ -90,19 +111,21 @@
 	<SectionTitle id="resume">Resume</SectionTitle>
 	<p class="mx-4 my-12 text-center text-xl md:text-3xl">
 		Check out my latest resume
-		<a
-			href="/Resume-Jaxson-Pahukula.pdf"
-			target="_blank"
-			class="italic text-white underline hover:text-primary">here</a
+		<a href="/Resume-Jaxson-Pahukula.pdf" target="_blank" class="italic text-white underline"
+			>here</a
 		>
 	</p>
 </div>
-<a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-2xl hover:text-primary">
+<a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-2xl">
 	{'<'}
 	<HomeIcon class="h-12" />
 </a>
 
 <style>
+	p {
+		@apply my-2 indent-8;
+	}
+
 	#timeline h3 {
 		@apply mt-0;
 	}
@@ -112,11 +135,11 @@
 	}
 
 	#timeline p {
-		@apply my-2 indent-4 leading-tight;
+		@apply indent-4 leading-tight;
 	}
 
 	img {
-		@apply rounded-sm;
+		@apply rounded-md;
 	}
 
 	#timeline img {
@@ -124,6 +147,9 @@
 	}
 
 	.image-container {
-		@apply md:flex md:h-[200px] md:justify-evenly;
+		@apply md:flex md:h-[250px] md:justify-evenly md:gap-2;
+	}
+	.image-container img {
+		@apply max-h-[300px];
 	}
 </style>

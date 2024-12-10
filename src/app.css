@@ -40,7 +40,7 @@
 	}
 
 	a {
-		@apply text-light-gray;
+		@apply text-light-gray hover:text-primary;
 	}
 
 	li {
