@@ -32,7 +32,7 @@
 	}
 
 	p {
-		@apply text-base text-light-gray;
+		@apply text-lg text-light-gray;
 	}
 
 	figcaption {

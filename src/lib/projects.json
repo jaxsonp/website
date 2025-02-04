@@ -3,7 +3,7 @@
 		{
 			"title": "DIY Graphics Pipeline",
 			"thumbnailFile": "cs334-graphics.png",
-			"description": "A homemade 3D rendering pipeline, written in C++ for Purdue's CS 33400, Intro to Computer Graphics.\nI started with software rendering, implementing triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more from scratch.\nI then refactored the program, switching to hardware rendering with OpenGL and eventually implementing the same features with shaders.",
+			"description": "A homemade 3D rendering pipeline, written in C++ for Purdue's CS 33400, Intro to Computer Graphics.\nI started with software rendering, implementing mesh rendering, point lights, shadows, texture mapping, reflections, and more from scratch.\nI factored in hardware rendering with OpenGL, eventually implementing the same features with shaders.",
 			"tags": ["C++"],
 			"links": ["https://github.com/jaxsonp/CS334-graphics-pipeline"]
 		},

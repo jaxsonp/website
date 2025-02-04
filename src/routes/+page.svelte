@@ -3,6 +3,9 @@
 	import { pushState } from '$app/navigation';
 
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
+	import DynamicLinkIcon from '$lib/components/DynamicLinkIcon.svelte';
+	import ProjectTag from '$lib/components/ProjectTag.svelte';
+	import { getThumbnail } from '$lib/lib';
 
 	import headshotImg from '$lib/assets/headshot.jpg';
 	import PersonIcon from '$lib/assets/icons/PersonIcon.svelte';
@@ -32,68 +35,40 @@
 	};
 
 	onMount(() => {
-		let check_social_popup = () => {
+		/*let check_social_popup = () => {
 			if (window.location.hash === '#socials') {
 				show_socials_popup();
 			}
 			return false;
 		};
 		addEventListener('hashchange', check_social_popup);
-		check_social_popup();
+		check_social_popup();*/
+	});
+
+	import projectFile from '$lib/projects.json';
+	let featuredProjects: Project[] = projectFile.featured;
+	featuredProjects.forEach((project) => {
+		project.tags.sort();
+		project.links.sort();
 	});
 </script>
 
 <div class="h-full w-full">
-	<div class="z-10 lg:fixed lg:flex lg:h-full lg:w-[325px] lg:items-center xl:w-[375px]">
-		<!-- Side card -->
-		<div
-			class="lg:black-glass flex w-full flex-col items-center rounded-2xl px-4 py-8 lg:border-1 lg:border-black"
-		>
-			<!-- side card shadow -->
-			<div
-				class="clip-left -z-10 hidden h-full rounded-r-2xl shadow-light shadow-white/25 lg:absolute lg:left-[100px] lg:top-0 lg:block lg:w-[225px] xl:w-[275px]"
-			></div>
-			<!-- side card content -->
-			<img
-				src={headshotImg}
-				class="w-[150px] rounded-full border-2 border-black shadow-light shadow-white/20 md:w-[200px] lg:w-1/2"
-				alt="Me"
-			/>
-			<div class="mb-4 mt-8 lg:mt-2 xl:mt-8">
-				<p class="text-xl text-white">Hi, I'm</p>
-				<h1 class="underline-accent text-6xl font-bold">
-					Jaxson<br />Pahukula
-				</h1>
-			</div>
-			<div class="mb-2 mt-4 flex items-center gap-1">
-				<LocationIcon class="inline h-5 text-light-gray" />
-				<p class="inline text-xl">Maui, HI</p>
-			</div>
-			<div
-				class="black-glass my-2 flex flex-col items-start gap-y-1 rounded-xl p-4 px-10 *:text-xl lg:bg-transparent lg:p-0 lg:filter-none"
-			>
-				{#snippet bullet()}
-					<span class="font-bold text-secondary">{'> '}</span>
-				{/snippet}
-				<a href="mailto:jaxpahu@gmail.com" target="_blank">
-					{@render bullet()}<span class="underline">jaxpahu@gmail.com</span>
-				</a>
-				<a href="https://github.com/jaxsonp" target="_blank">
-					{@render bullet()} Github
-				</a>
-				<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank">
-					{@render bullet()} LinkedIn
-				</a>
-				<a href="./#socials" class="italic text-light-gray">
-					{@render bullet()} More socials...
-				</a>
-			</div>
+	<div class="flex w-full flex-col items-center justify-center py-32">
+		<img
+			src={headshotImg}
+			class="w-[200px] rounded-full border-2 border-black shadow-light shadow-white/50"
+			alt="Me"
+		/>
+		<div class="mt-4">
+			<p class="text-2xl text-white">Hi, I'm</p>
+			<h1 class="underline-accent text-6xl font-bold">
+				Jaxson<br />Pahukula
+			</h1>
 		</div>
 	</div>
-	<div class="black-glass z-0 flex rounded-t-3xl lg:ml-[100px] lg:h-full lg:rounded-none">
-		<div class="hidden min-w-[225px] lg:block xl:min-w-[275px]"></div>
-		<div class="flex w-full flex-col py-8 pl-8 pr-12 lg:justify-center">
-			<!-- Main page content -->
+	<div class="black-glass z-0 flex rounded-t-3xl p-4 lg:px-12">
+		<div class="flex w-full flex-col">
 			{#snippet NavItem(text: string, href: string, Icon: Component)}
 				<a
 					{href}
@@ -104,29 +79,82 @@
 				</a>
 			{/snippet}
 			<SectionTitle id="about">About Me</SectionTitle>
-			<p class="mt-4 indent-8 md:px-12 lg:px-4 xl:px-10">
-				I'm Jaxson, a computer science student from Hawai'i studying at Purdue University. I'm
-				passionate about coding, playing music, and volleyball. Welcome to my homepage!
+			<div class="flex flex-col items-center">
+				<p class="mt-8 indent-8 md:w-3/4">
+					Hi, I'm Jaxson! I'm a computer science student from Hawai'i studying at Purdue University.
+					I'm passionate about programming, playing music, and volleyball. Welcome to my homepage!
+				</p>
+				<div class="my-2 flex flex-col items-start gap-y-1 rounded-xl p-4 px-10 *:text-xl">
+					{#snippet bullet()}
+						<span class="font-bold text-secondary">{'> '}</span>
+					{/snippet}
+					<a href="mailto:jaxpahu@gmail.com" target="_blank">
+						{@render bullet()}<span class="underline">jaxpahu@gmail.com</span>
+					</a>
+					<a href="https://github.com/jaxsonp" target="_blank">
+						{@render bullet()} Github
+					</a>
+					<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank">
+						{@render bullet()} LinkedIn
+					</a>
+					<a href="./#socials" class="italic text-light-gray">
+						{@render bullet()} More socials...
+					</a>
+				</div>
+			</div>
+			<SectionTitle id="projects">Featured Projects</SectionTitle>
+			<div class="mb-10 mt-16 space-y-10 lg:px-12 xl:px-24">
+				{#each featuredProjects as project}
+					<div
+						class="mx-4 grid grid-cols-1 rounded-2xl bg-black/40 shadow-light shadow-white/25 md:min-h-[225px] md:grid-cols-[2fr_1fr]"
+					>
+						<img
+							src={getThumbnail(project.thumbnailFile)}
+							alt={project.title + ' thumbnail'}
+							class="md:transparent-gradient-left col-start-1 row-start-1 h-[200px] w-full rounded-t-2xl object-cover md:col-start-2 md:h-full md:rounded-none md:rounded-r-2xl"
+						/>
+						<div
+							class="z-10 col-start-1 row-start-1 flex w-min space-x-2 place-self-end self-end rounded-tl-lg bg-black p-2 md:col-start-2 md:rounded-br-2xl"
+						>
+							{#each project.links as link}
+								<a href={link} target="_blank" class="text-white *:h-7 *:w-7 hover:scale-110">
+									<DynamicLinkIcon {link} />
+								</a>
+							{/each}
+						</div>
+						<div class="flex flex-col p-4 md:pr-0">
+							<h3 class="">
+								<span class="mr-4 text-primary">{'=>'}</span>{project.title}
+							</h3>
+							<ul class="grow">
+								{#each project.description.split('\n') as paragraph}
+									<li class="my-2 ml-5 list-[square] text-lg text-secondary">
+										<p class="indent-4 leading-tight">
+											{paragraph}
+										</p>
+									</li>
+								{/each}
+							</ul>
+							<div class="flex justify-end space-x-1">
+								{#each project.tags as tag}
+									<ProjectTag {tag} />
+								{/each}
+							</div>
+						</div>
+					</div>
+				{/each}
+			</div>
+			<p class="mb-4 text-center text-4xl">
+				Check out <a href="/projects#all" class="underline">all my projects {'>'}</a>
 			</p>
-			<div class="flex justify-center">
-				{@render NavItem('About Me', './about', PersonIcon)}
-			</div>
-			<SectionTitle id="about-me">Career</SectionTitle>
-			<div class="my-2 grid grid-cols-1 md:grid-cols-2">
-				{@render NavItem('Overview', './career', ContactIcon)}
-				{@render NavItem('Experience', './career#experience', BriefcaseIcon)}
-				{@render NavItem('Resume', './Resume-Jaxson-Pahukula.pdf', FileIcon)}
-			</div>
-			<SectionTitle id="projects">Projects</SectionTitle>
-			<div class="my-2 grid grid-cols-1 md:grid-cols-2">
-				{@render NavItem('Featured', './projects', SparkleIcon)}
-				{@render NavItem('All', './projects#all', GridIcon)}
-			</div>
-			<SectionTitle id="">Other</SectionTitle>
-			<div class="my-2 grid grid-cols-1 md:grid-cols-2">
-				{@render NavItem('Socials', './#socials', PeopleIcon)}
-				{@render NavItem('Stargaze', './stargaze', TelescopeIcon)}
-			</div>
+			<SectionTitle id="cv">My CV</SectionTitle>
+			<p class="">TODO</p>
+			<a href="career ">
+				<p class="underline">Go -{'>'}</p>
+			</a>
+			<SectionTitle id="cv">Fun stuff</SectionTitle>
+			<p class="">TODO</p>
+			<!-- add stargazing -->
 		</div>
 	</div>
 	{#if socials_popup_visibile}

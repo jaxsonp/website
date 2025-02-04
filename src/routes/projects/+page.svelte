@@ -1,5 +1,8 @@
 <script lang="ts">
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
+	import ProjectTag from '$lib/components/ProjectTag.svelte';
+	import DynamicLinkIcon from '$lib/components/DynamicLinkIcon.svelte';
+	import { getThumbnail } from '$lib/lib';
 
 	import HomeIcon from '$lib/assets/icons/HomeIcon.svelte';
 	import GithubIcon from '$lib/assets/icons/GithubIcon.svelte';
@@ -10,13 +13,6 @@
 
 	// importing projects and gathering tags
 	import projectFile from '$lib/projects.json';
-	type Project = {
-		title: string;
-		thumbnailFile: string;
-		description: string;
-		tags: string[];
-		links: string[];
-	};
 
 	// counting occurences of tags
 	let tagOccurences: { [tag: string]: number } = {};
@@ -49,42 +45,21 @@
 		return tagOccurences[a] >= tagOccurences[b] ? -1 : 1;
 	});
 	let tagFilter = $state([]);
-
-	// helper functions
-	const getThumbnail = (name: string) => {
-		return '/project-thumbnails/' + name;
-	};
 </script>
 
-{#snippet get_link_icon(link: string)}
-	{#if link.includes('github.com')}
-		<GithubIcon />
-	{:else if link.includes('crates.io')}
-		<CratesioIcon />
-	{:else if link.includes('devpost.com')}
-		<DevpostIcon />
-	{:else if link.includes('readthedocs.io')}
-		<ReadTheDocsIcon />
-	{:else}
-		<LinkIcon />
-	{/if}
-{/snippet}
-
-{#snippet render_tag(tag: string)}
-	<p
-		class="my-1 h-min text-nowrap rounded-md border-1 border-secondary bg-secondary/25 px-2 text-sm italic text-white"
-	>
-		{tag}
-	</p>
-{/snippet}
-
 <div class="black-glass h-full w-full border-x-1 border-x-black p-4 lg:px-16">
-	<h1 class="underline-accent my-8 text-center font-bold">Projects</h1>
-	<SectionTitle id="featured">Featured Projects</SectionTitle>
-	<div class="my-16 space-y-12 xl:px-16">
+	<h1 class="underline-accent my-8 text-center font-bold">Featured Projects</h1>
+	<!-- Filtering by tag -->
+	<!--<div class="mx-16 my-8 flex flex-wrap space-x-2">
+		<p class="mx-4 text-xl text-light-gray">Filter by tag:</p>
+		{#each allTags as tag}
+			{@render render_tag(tag)}
+		{/each}
+	</div>-->
+	<div class="my-12 space-y-10 lg:px-12 xl:px-24">
 		{#each featuredProjects as project}
 			<div
-				class="mx-4 grid grid-cols-1 rounded-2xl bg-black/40 shadow-light shadow-white/25 hover:shadow-primary/60 md:min-h-[225px] md:grid-cols-[2fr_1fr]"
+				class="mx-4 grid grid-cols-1 rounded-2xl bg-black/40 shadow-light shadow-white/25 md:min-h-[225px] md:grid-cols-[2fr_1fr]"
 			>
 				<img
 					src={getThumbnail(project.thumbnailFile)}
@@ -96,7 +71,7 @@
 				>
 					{#each project.links as link}
 						<a href={link} target="_blank" class="text-white *:h-7 *:w-7 hover:scale-110">
-							{@render get_link_icon(link)}
+							<DynamicLinkIcon {link} />
 						</a>
 					{/each}
 				</div>
@@ -115,22 +90,16 @@
 					</ul>
 					<div class="flex justify-end space-x-1">
 						{#each project.tags as tag}
-							{@render render_tag(tag)}
+							<ProjectTag {tag} />
 						{/each}
 					</div>
 				</div>
 			</div>
 		{/each}
 	</div>
-	<SectionTitle id="all">All Projects</SectionTitle>
-	<!-- Filtering by tag -->
-	<!--<div class="mx-16 my-8 flex flex-wrap space-x-2">
-		<p class="mx-4 text-xl text-light-gray">Filter by tag:</p>
-		{#each allTags as tag}
-			{@render render_tag(tag)}
-		{/each}
-	</div>-->
-	<div class="my-16 grid grid-cols-1 grid-rows-[masonry] gap-6 md:grid-cols-2 lg:grid-cols-3">
+	<hr />
+	<h1 class="underline-accent my-8 text-center font-bold" id="all">All Projects</h1>
+	<div class="my-16 grid grid-cols-1 grid-rows-[masonry] gap-12 md:grid-cols-2">
 		{#each allProjects as project}
 			<div
 				class="grid h-min w-full max-w-[400px] grid-rows-[125px_1fr] justify-self-center rounded-2xl bg-black/40 shadow-light shadow-white/20 transition-transform hover:scale-[102%] hover:shadow-primary/60 md:max-w-full xl:grid-rows-[175px_1fr]"
@@ -145,7 +114,7 @@
 				>
 					{#each project.links as link}
 						<a href={link} target="_blank" class="text-white *:h-7 *:w-7 hover:scale-110">
-							{@render get_link_icon(link)}
+							<DynamicLinkIcon {link} />
 						</a>
 					{/each}
 				</div>
@@ -154,7 +123,7 @@
 					<p class="my-2 px-4">{project.description}</p>
 					<div class="mx-3 mb-2 flex grow flex-wrap justify-end space-x-1">
 						{#each project.tags as tag}
-							{@render render_tag(tag)}
+							<ProjectTag {tag} />
 						{/each}
 					</div>
 				</div>
