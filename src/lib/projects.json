@@ -1,9 +1,16 @@
 {
 	"featured": [
 		{
+			"title": "Cubegame",
+			"thumbnailFile": "cubegame.png",
+			"description": "A completely original game with no relation to Minecraft.\nWritten in Rust, made with a custom rendering engine built with wgpu.\nWIP (multiplayer is on the horizon)",
+			"tags": ["Rust"],
+			"links": ["https://github.com/jaxsonp/cubegame"]
+		},
+		{
 			"title": "DIY Graphics Pipeline",
 			"thumbnailFile": "cs334-graphics.png",
-			"description": "A homemade 3D rendering pipeline, written in C++ for Purdue's CS 33400, Intro to Computer Graphics.\nI started with software rendering, implementing mesh rendering, point lights, shadows, texture mapping, reflections, and more from scratch.\nI factored in hardware rendering with OpenGL, eventually implementing the same features with shaders.",
+			"description": "A homemade 3D rendering pipeline, written in C++ for Purdue's CS 33400, Intro to Computer Graphics.\nFeatures triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more.\nI first implemented its features from scratch in software, then refactored for hardware rendering",
 			"tags": ["C++"],
 			"links": ["https://github.com/jaxsonp/CS334-graphics-pipeline"]
 		},

@@ -3,13 +3,18 @@
 	import TimelineEntry from '$lib/components/TimelineEntry.svelte';
 
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	import HomeIcon from '$lib/assets/icons/HomeIcon.svelte';
 </script>
 
-<div class="black-glass mt-12 h-full w-full rounded-t-3xl border-x-1 border-x-black p-4 lg:px-16">
+<div class="black-glass h-full w-full border-x-1 border-x-black p-4 lg:px-16">
 	<h1 class="underline-accent my-8 text-center font-bold">Professional Overview</h1>
 	<SectionTitle id="intro">Introduction</SectionTitle>
+	<p class="px-[10%]">
+		Pretend there is a good professional introduction here, I will get around to writing this
+		someday.
+	</p>
 	<SectionTitle id="experience">Experience</SectionTitle>
 	<div id="timeline" class="xl:mx-16">
 		<Timeline position="right" style="padding: 0" center={false}>
@@ -83,12 +88,14 @@
 		</Timeline>
 	</div>
 	<SectionTitle id="resume">Resume</SectionTitle>
-	<p class="mx-4 my-12 text-center text-xl md:text-3xl">
+	<p class="mx-4 my-12 text-center text-xl md:text-2xl">
 		Check out my latest resume
 		<a href="/Resume-Jaxson-Pahukula.pdf" target="_blank" class="italic text-white underline"
 			>here</a
 		>
 	</p>
+	<br />
+	<Footer />
 </div>
 <a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-2xl">
 	{'<'}

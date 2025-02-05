@@ -1,8 +1,6 @@
 <script lang="ts">
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
-	import ProjectTag from '$lib/components/ProjectTag.svelte';
-	import DynamicLinkIcon from '$lib/components/DynamicLinkIcon.svelte';
-	import { getThumbnail } from '$lib/lib';
+	import Footer from '$lib/components/Footer.svelte';
 
 	import HomeIcon from '$lib/assets/icons/HomeIcon.svelte';
 	import GithubIcon from '$lib/assets/icons/GithubIcon.svelte';
@@ -45,10 +43,38 @@
 		return tagOccurences[a] >= tagOccurences[b] ? -1 : 1;
 	});
 	let tagFilter = $state([]);
+
+	// helper function
+	let getThumbnail = (name: string) => {
+		return '/project-thumbnails/' + name;
+	};
 </script>
 
+{#snippet projectTag(tag: string)}
+	<p
+		class="my-1 h-min text-nowrap rounded-md border-1 border-secondary bg-secondary/25 px-2 text-sm italic text-white"
+	>
+		{tag}
+	</p>
+{/snippet}
+
+{#snippet linkIcon(link: string)}
+	<!-- Gets a link icon based on what the link is -->
+	{#if link.includes('github.com')}
+		<GithubIcon />
+	{:else if link.includes('crates.io')}
+		<CratesioIcon />
+	{:else if link.includes('devpost.com')}
+		<DevpostIcon />
+	{:else if link.includes('readthedocs.io')}
+		<ReadTheDocsIcon />
+	{:else}
+		<LinkIcon />
+	{/if}
+{/snippet}
+
 <div class="black-glass h-full w-full border-x-1 border-x-black p-4 lg:px-16">
-	<h1 class="underline-accent my-8 text-center font-bold">Featured Projects</h1>
+	<h1 class="underline-accent my-16 text-center font-bold">Project Gallery</h1>
 	<!-- Filtering by tag -->
 	<!--<div class="mx-16 my-8 flex flex-wrap space-x-2">
 		<p class="mx-4 text-xl text-light-gray">Filter by tag:</p>
@@ -56,6 +82,7 @@
 			{@render render_tag(tag)}
 		{/each}
 	</div>-->
+	<SectionTitle id="featured">Featured</SectionTitle>
 	<div class="my-12 space-y-10 lg:px-12 xl:px-24">
 		{#each featuredProjects as project}
 			<div
@@ -71,7 +98,7 @@
 				>
 					{#each project.links as link}
 						<a href={link} target="_blank" class="text-white *:h-7 *:w-7 hover:scale-110">
-							<DynamicLinkIcon {link} />
+							{@render linkIcon(link)}
 						</a>
 					{/each}
 				</div>
@@ -90,15 +117,14 @@
 					</ul>
 					<div class="flex justify-end space-x-1">
 						{#each project.tags as tag}
-							<ProjectTag {tag} />
+							{@render projectTag(tag)}
 						{/each}
 					</div>
 				</div>
 			</div>
 		{/each}
 	</div>
-	<hr />
-	<h1 class="underline-accent my-8 text-center font-bold" id="all">All Projects</h1>
+	<SectionTitle id="all">All Projects</SectionTitle>
 	<div class="my-16 grid grid-cols-1 grid-rows-[masonry] gap-12 md:grid-cols-2">
 		{#each allProjects as project}
 			<div
@@ -114,7 +140,7 @@
 				>
 					{#each project.links as link}
 						<a href={link} target="_blank" class="text-white *:h-7 *:w-7 hover:scale-110">
-							<DynamicLinkIcon {link} />
+							{@render linkIcon(link)}
 						</a>
 					{/each}
 				</div>
@@ -123,15 +149,16 @@
 					<p class="my-2 px-4">{project.description}</p>
 					<div class="mx-3 mb-2 flex grow flex-wrap justify-end space-x-1">
 						{#each project.tags as tag}
-							<ProjectTag {tag} />
+							{@render projectTag(tag)}
 						{/each}
 					</div>
 				</div>
 			</div>
 		{/each}
 	</div>
+	<Footer />
 </div>
-<a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-3xl">
+<a href="/" class="fixed bottom-2 z-40 ml-4 flex items-center text-2xl">
 	{'<'}
 	<HomeIcon class="h-12" />
 </a>
