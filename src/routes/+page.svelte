@@ -5,21 +5,11 @@
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 
 	import headshotImg from '$lib/assets/headshot.jpg';
-	import PersonIcon from '$lib/assets/icons/PersonIcon.svelte';
-	import BriefcaseIcon from '$lib/assets/icons/BriefcaseIcon.svelte';
-	import FileIcon from '$lib/assets/icons/FileIcon.svelte';
-	import GridIcon from '$lib/assets/icons/GridIcon.svelte';
-	import SparkleIcon from '$lib/assets/icons/SparkleIcon.svelte';
-	import LocationIcon from '$lib/assets/icons/LocationIcon.svelte';
 	import InstagramIcon from '$lib/assets/icons/InstagramIcon.svelte';
 	import GithubIcon from '$lib/assets/icons/GithubIcon.svelte';
-	import XIcon from '$lib/assets/icons/XIcon.svelte';
 	import LinkedInIcon from '$lib/assets/icons/LinkedInIcon.svelte';
 	import FacebookIcon from '$lib/assets/icons/FacebookIcon.svelte';
-	import PeopleIcon from '$lib/assets/icons/PeopleIcon.svelte';
-	import TelescopeIcon from '$lib/assets/icons/TelescopeIcon.svelte';
 	import LeetcodeIcon from '$lib/assets/icons/LeetcodeIcon.svelte';
-	import ContactIcon from '$lib/assets/icons/ContactIcon.svelte';
 	import EmailIcon from '$lib/assets/icons/EmailIcon.svelte';
 
 	import projectFile from '$lib/projects.json';
@@ -90,7 +80,7 @@
 		</div>
 		<SectionTitle id="cv">My CV</SectionTitle>
 		<p class="text-center underline">
-			<a href="/career" target="_blank">
+			<a href="/career">
 				CV Page (WIP) {'>'}
 			</a>
 		</p>

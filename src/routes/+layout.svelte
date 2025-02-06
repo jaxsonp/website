@@ -4,23 +4,25 @@
 	import '../app.css';
 
 	// background stuff
-	import { initializeStars, drawStars } from '$lib/stars';
+	import { initializeSky, resizeSky, drawStars } from '$lib/stars';
 	if (browser) {
-		window.onload = () => {
+		window.addEventListener('load', () => {
 			let canvas = document.getElementById('background') as HTMLCanvasElement;
 			if (canvas !== null) {
+				initializeSky(canvas);
+
 				const resizeHandler = () => {
 					canvas.width = window.innerWidth;
 					canvas.height = window.innerHeight;
-					initializeStars(canvas.width, canvas.height);
-					drawStars(canvas);
+					resizeSky(canvas.width, canvas.height);
+					drawStars();
 				};
 				window.addEventListener('resize', resizeHandler, false);
 
 				// initializing
 				resizeHandler();
 			}
-		};
+		});
 	}
 
 	let { children } = $props();

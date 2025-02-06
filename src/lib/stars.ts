@@ -1,8 +1,14 @@
-const STARS_PER_PX = 0.00025;
+// Stars per million pixels
+const STARS_PER_MIL_PIX = 275;
+const STARS_PER_PX = STARS_PER_MIL_PIX / 1_000_000;
 
-let ctx: CanvasRenderingContext2D;
+const MAX_STAR_SIZE = 1.75;
+
+let ctx: CanvasRenderingContext2D | null = null;
 let width: number;
 let height: number;
+let maxWidth = 0;
+let maxHeight = 0;
 
 let stars: Star[];
 
@@ -11,44 +17,63 @@ class Star {
 	y: number;
 	size: number;
 
-	constructor(w: number, h: number) {
-		this.x = Math.random() * w;
-		this.y = Math.random() * h;
-		this.size = Math.random() ** 2 * 1.5;
-	}
-
-	draw() {
-		if (this.x < width && this.y < height) {
-			ctx.beginPath();
-			ctx.ellipse(this.x, this.y, this.size, this.size, 0, 0, 2 * Math.PI);
-			ctx.fill();
-		}
+	constructor(x: number, y: number) {
+		this.x = x;
+		this.y = y;
+		this.size = Math.random() ** 2 * MAX_STAR_SIZE;
 	}
 }
 
-export function initializeStars(w: number, h: number) {
-	console.debug('Initializing background scene');
+export function initializeSky(canvas: HTMLCanvasElement) {
 	stars = [];
-	let n_stars = Math.floor(w * h * STARS_PER_PX);
-	console.debug(`Creating ${n_stars} stars`);
-	for (let i = 0; i < n_stars; i++) {
-		stars.push(new Star(w, h));
-	}
-}
+	width = 0;
+	height = 0;
 
-export function drawStars(canvas: HTMLCanvasElement) {
-	console.debug('redrawing stars');
-	width = canvas.width;
-	height = canvas.height;
-	let new_ctx = canvas.getContext('2d');
-	if (new_ctx == null) {
+	ctx = canvas.getContext('2d');
+	if (ctx == null) {
 		console.error('Failed to get context from canvas');
 		return;
 	}
-	ctx = new_ctx;
+}
+
+export function resizeSky(w: number, h: number) {
+	// generates stars in a rectangle
+	function generateStars(x: number, y: number, w: number, h: number) {
+		console.log('generating stars', x, y, w, h);
+		for (let px_y = y; px_y < y + h; px_y++) {
+			for (let px_x = x; px_x < x + w; px_x++) {
+				if (Math.random() < STARS_PER_PX) {
+					stars.push(new Star(px_x, px_y));
+				}
+			}
+		}
+	}
+
+	if (w > maxWidth) {
+		generateStars(maxWidth, 0, w - maxWidth, height);
+		maxWidth = w;
+	}
+	width = w;
+
+	if (h > maxHeight) {
+		generateStars(0, maxHeight, width, h - maxHeight);
+		maxHeight = h;
+	}
+	height = h;
+}
+
+export function drawStars() {
+	if (ctx == null) {
+		return;
+	}
+	console.debug('drawing stars');
 
 	ctx.fillStyle = 'white';
 	for (let i = 0; i < stars.length; i++) {
-		stars[i].draw();
+		if (stars[i].x < width && stars[i].y < height) {
+			ctx.beginPath();
+			ctx.ellipse(stars[i].x, stars[i].y, stars[i].size, stars[i].size, 0, 0, 2 * Math.PI);
+			ctx.fill();
+		}
 	}
 }
