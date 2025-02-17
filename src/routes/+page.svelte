@@ -10,6 +10,7 @@
 	import LinkedInIcon from '$lib/assets/icons/LinkedInIcon.svelte';
 	import FacebookIcon from '$lib/assets/icons/FacebookIcon.svelte';
 	import LeetcodeIcon from '$lib/assets/icons/LeetcodeIcon.svelte';
+	import RedditIcon from '$lib/assets/icons/RedditIcon.svelte';
 	import EmailIcon from '$lib/assets/icons/EmailIcon.svelte';
 
 	import projectFile from '$lib/projects.json';
@@ -111,6 +112,7 @@
 				{@render social_link('Instagram', 'https://www.instagram.com/jaxson.mp/', InstagramIcon)}
 				{@render social_link('Leetcode', 'https://leetcode.com/colbyjack/', LeetcodeIcon)}
 				{@render social_link('LinkedIn', 'https://www.linkedin.com/in/jaxsonp/', LinkedInIcon)}
+				{@render social_link('Reddit', 'https://www.reddit.com/user/cojack808/', RedditIcon)}
 				{@render social_link(
 					'Spotify',
 					'https://open.spotify.com/user/4jtq72to3phoh40qj10gghrrm?si=8b5e640043c24fd1',
