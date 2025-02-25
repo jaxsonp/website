@@ -8,11 +8,11 @@
 			"links": ["https://github.com/jaxsonp/cubegame"]
 		},
 		{
-			"title": "DIY Graphics Pipeline",
-			"thumbnailFile": "cs334-graphics.png",
-			"description": "A homemade 3D rendering pipeline, written in C++ for Purdue's CS 33400, Intro to Computer Graphics.\nFeatures triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more.\nI first implemented its features from scratch in software, then refactored for hardware rendering",
-			"tags": ["C++"],
-			"links": ["https://github.com/jaxsonp/CS334-graphics-pipeline"]
+			"title": "Circuit Court",
+			"thumbnailFile": "circuit-court.png",
+			"description": "Play as the prosecutor or the defense, presenting arguments to an LLM judge to try and sway its verdict in your favor!\nFrontend made with React and Babylon.js, assets made in Blender, Backend made with Python.\nCreated in 36 hours for the Boilermake XII hackathon.",
+			"tags": ["React", "Python", "Hackathon"],
+			"links": ["https://devpost.com/software/circuit-court", "https://github.com/jaxsonp/circuit-court"]
 		},
 		{
 			"title": "FactoryScript",
@@ -23,6 +23,13 @@
 		}
 	],
 	"all": [
+		{
+			"title": "DIY Graphics Pipeline",
+			"thumbnailFile": "cs334-graphics.png",
+			"description": "A homemade 3D rendering pipeline. Features triangle mesh rendering, point lights, shadows, texture mapping, reflective materials, and more. First implemented from scratch in software, then converted to hardware shaders.",
+			"tags": ["C++"],
+			"links": ["https://github.com/jaxsonp/CS334-graphics-pipeline"]
+		},
 		{
 			"title": "sci-calc",
 			"thumbnailFile": "sci-calc.png",
@@ -48,6 +55,13 @@
 			"links": ["https://github.com/jaxsonp/CHIP-8"]
 		},
 		{
+			"title": "rs-cube",
+			"description": "Simply a rotating 3d cube in your terminal",
+			"thumbnailFile": "rs-cube.gif",
+			"links": ["https://github.com/jaxsonp/rs-cube"],
+			"tags": ["Rust"]
+		},
+		{
 			"title": "This website",
 			"thumbnailFile": "my-website.png",
 			"description": "",
@@ -67,13 +81,6 @@
 			"thumbnailFile": "bible-mod.png",
 			"links": ["https://github.com/jaxsonp/the-holy-bible-mc"],
 			"tags": ["Java", "Minecraft"]
-		},
-		{
-			"title": "rs-cube",
-			"description": "Simply a rotating 3d cube in your terminal",
-			"thumbnailFile": "rs-cube.gif",
-			"links": ["https://github.com/jaxsonp/rs-cube"],
-			"tags": ["Rust"]
 		}
 	]
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import type { Project } from '$lib/types'
 
 	import HomeIcon from '$lib/assets/icons/HomeIcon.svelte';
 	import GithubIcon from '$lib/assets/icons/GithubIcon.svelte';
@@ -83,10 +84,10 @@
 		{/each}
 	</div>-->
 	<SectionTitle id="featured">Featured</SectionTitle>
-	<div class="my-12 space-y-10 lg:px-12 xl:px-24">
+	<div class="my-12 space-y-10 lg:px-8 xl:px-12">
 		{#each featuredProjects as project}
 			<div
-				class="mx-4 grid grid-cols-1 rounded-2xl bg-black/40 shadow-light shadow-white/25 md:min-h-[225px] md:grid-cols-[2fr_1fr]"
+				class="mx-4 grid grid-cols-1 rounded-2xl bg-black/40 shadow-light shadow-white/25 md:min-h-[225px] md:grid-cols-[3fr_2fr]"
 			>
 				<img
 					src={getThumbnail(project.thumbnailFile)}
@@ -128,7 +129,7 @@
 	<div class="my-16 grid grid-cols-1 grid-rows-[masonry] gap-12 md:grid-cols-2">
 		{#each allProjects as project}
 			<div
-				class="grid h-min w-full max-w-[400px] grid-rows-[125px_1fr] justify-self-center rounded-2xl bg-black/40 shadow-light shadow-white/20 transition-transform hover:scale-[102%] hover:shadow-primary/60 md:max-w-full xl:grid-rows-[175px_1fr]"
+				class="grid h-min w-full max-w-[400px] grid-rows-[125px_1fr] justify-self-center rounded-2xl bg-black/40 shadow-light shadow-white/20 transition-transform hover:scale-[102%] hover:shadow-primary/60 md:max-w-full lg:grid-rows-[175px_1fr] xl:grid-rows-[200px_1fr]"
 			>
 				<img
 					src={getThumbnail(project.thumbnailFile)}

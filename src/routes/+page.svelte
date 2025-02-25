@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount, type Component } from 'svelte';
-	import { pushState } from '$app/navigation';
+	import { type Component } from 'svelte';
+	import type { Project } from '$lib/types'
 
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 

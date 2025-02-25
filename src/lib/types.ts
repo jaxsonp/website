@@ -1,4 +1,4 @@
-declare type Project = {
+export type Project = {
 	title: string;
 	thumbnailFile: string;
 	description: string;
