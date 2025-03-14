@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { type Component } from 'svelte';
-	import type { Project } from '$lib/types'
+	import type { Project } from '$lib/types';
 
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 
@@ -12,6 +12,7 @@
 	import LeetcodeIcon from '$lib/assets/icons/LeetcodeIcon.svelte';
 	import RedditIcon from '$lib/assets/icons/RedditIcon.svelte';
 	import EmailIcon from '$lib/assets/icons/EmailIcon.svelte';
+	import HtbIcon from '$lib/assets/icons/HTBIcon.svelte';
 
 	import projectFile from '$lib/projects.json';
 	import SpotifyIcon from '$lib/assets/icons/SpotifyIcon.svelte';
@@ -109,6 +110,7 @@
 					FacebookIcon
 				)}
 				{@render social_link('Github', 'https://github.com/jaxsonp', GithubIcon)}
+				{@render social_link('HTB', 'https://ctf.hackthebox.com/user/profile/645470', HtbIcon)}
 				{@render social_link('Instagram', 'https://www.instagram.com/jaxson.mp/', InstagramIcon)}
 				{@render social_link('Leetcode', 'https://leetcode.com/colbyjack/', LeetcodeIcon)}
 				{@render social_link('LinkedIn', 'https://www.linkedin.com/in/jaxsonp/', LinkedInIcon)}
