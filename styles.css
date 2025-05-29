@@ -22,10 +22,10 @@
 body {
 	background: rgb(15, 15, 40);
 	background: linear-gradient(
-	-10deg,
-	rgba(44, 104, 215, 1) 0%,
-	rgba(24, 52, 107, 1) 20%,
-	rgba(17, 35, 71, 1) 35%,
+	-2deg,
+	rgba(25, 74, 165, 1) 0%,
+	rgba(24, 52, 107, 1) 10%,
+	rgba(17, 35, 71, 1) 25%,
 	rgba(15, 15, 20, 1) 100%
 	);
 }
@@ -33,14 +33,6 @@ body {
 h1 {
 	color: var(--off-white);
 	font-weight: 700;
-	line-height: 0.8;
-}
-
-#title {
-	margin: 0;
-	margin-left: 8px;
-
-	font-size: 60px;
 }
 
 p {
@@ -54,6 +46,13 @@ a {
 
 a:hover {
 	color: var(--primary);
+}
+
+#background {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
 }
 
 .black-glass {
