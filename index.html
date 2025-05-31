@@ -7,17 +7,19 @@
 		<link rel="icon" href="favicon.ico" />
 		<link rel="stylesheet" href="styles.css" />
 
+		<script src="js/main.js" type="module" defer></script>
+
+		<!-- google font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
 		<!-- page specific style -->
 		<style>
 p {
 	text-align: center;
 }
 		</style>
-
-		<!-- google font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 	</head>
 
 	<body style="width: 100vw; height: 100vh;">
@@ -117,25 +119,6 @@ p {
 			*
 			<a href="/stargaze" class="underline">stargaze</a>
 		</footer>
-
-		<script type="module">
-			import { initializeSky, resizeSky, drawStars } from './stars.js';
-
-			let canvas = document.getElementById('background');
-			initializeSky(canvas);
-
-			const resizeHandler = () => {
-				canvas.width = window.innerWidth;
-				canvas.height = window.innerHeight;
-				resizeSky(canvas.width, canvas.height);
-				drawStars();
-				console.debug("redrew stars");
-			};
-			window.addEventListener('resize', resizeHandler, false);
-
-			// initializing
-			resizeHandler();
-		</script>
 	</body>
 </html>
 

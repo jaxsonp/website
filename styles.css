@@ -52,7 +52,8 @@ a:hover {
 
 footer {
 	position: absolute;
-	bottom: 0px;
+	bottom: 2px;
+	left: 8px;
 
 	color: rgb(117, 132, 156);
 	font-style: italic;
