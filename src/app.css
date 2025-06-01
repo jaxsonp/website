@@ -21,11 +21,11 @@
 	}
 
 	h1 {
-		font-weight: 700;
+		@apply text-5xl font-bold;
 	}
 
-	p {
-		margin: 2rem 0;
+	h2 {
+		@apply text-3xl font-semibold;
 	}
 
 	a {
@@ -39,3 +39,19 @@
 	backdrop-filter: blur(4px);
 }
 
+.list-gt-bullet {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.list-gt-bullet li {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+.list-gt-bullet li::before {
+	content: '>';
+	padding-right: 5px;
+	color: var(--color-secondary);
+}
