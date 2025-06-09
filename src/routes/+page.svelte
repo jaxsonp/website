@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { type Component } from 'svelte';
 
-	import headshotImg from '$lib/assets/headshot.jpg';
+	import Footer from '$lib/components/Footer.svelte';
+
+	import headshotImg from '$lib/assets/headshot.jpg?enhanced';
 
 	import InstagramIcon from '$lib/assets/icons/InstagramIcon.svelte';
 	import GithubIcon from '$lib/assets/icons/GithubIcon.svelte';
@@ -13,14 +15,16 @@
 	import SpotifyIcon from '$lib/assets/icons/SpotifyIcon.svelte';
 </script>
 
-<div class="flex min-h-screen flex-col items-center justify-center">
+<div class="flex grow flex-col items-center justify-center">
 	<div style="display: flex; flex-direction: column; align-items: center;">
-		<img
+		<enhanced:img
 			src={headshotImg}
 			alt="A really pretty face"
 			class="shadow-light relative top-6 h-[120px] w-[120px] rounded-full border-2 border-black"
 		/>
-		<h1 class="mt-0 leading-[0.75] z-10" style="margin-top: 0; line-height: 0.75; font-size: 48px; z-index: 1;">JAXSON PAHUKULA</h1>
+		<h1 class="z-10 mt-0 leading-[0.75]" style="margin-top: 0; line-height: 0.75; font-size: 48px; z-index: 1;">
+			JAXSON PAHUKULA
+		</h1>
 	</div>
 
 	<main class="black-glass shadow-light mb-8 rounded-2xl px-6 *:text-center">
@@ -81,6 +85,7 @@
 		</ul>
 	</main>
 </div>
+<Footer />
 
 <style>
 	p {

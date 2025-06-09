@@ -35,23 +35,22 @@
 
 .black-glass {
 	background: rgba(0, 0, 0, 0.4);
-	-webkit-backdrop-filter: blur(4px);
-	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
 }
 
 .list-gt-bullet {
 	list-style: none;
-	margin-left: 0;
-	padding-left: 0;
 }
 
 .list-gt-bullet li {
-	padding-left: 1em;
-	text-indent: -1em;
+	padding-left: 0.5em;
+	text-indent: -0.5em;
 }
 
 .list-gt-bullet li::before {
 	content: '>';
-	padding-right: 5px;
+	padding-right: 7px;
 	color: var(--color-secondary);
+	font-weight: bold;
 }

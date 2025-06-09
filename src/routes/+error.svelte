@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<div class="flex h-screen w-screen items-center justify-center">
+<div class="flex grow items-center justify-center">
 	<div class="black-glass rounded-xl p-4 *:text-center">
 		<h1>Error {page.status}</h1>
 		<h2>{page.error?.message}</h2>
@@ -11,3 +12,4 @@
 		</p>
 	</div>
 </div>
+<Footer />
