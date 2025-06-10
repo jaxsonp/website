@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Masonry from '$lib/components/masonry.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-
-	import headshotImg from '$lib/assets/headshot.jpg?enhanced';
 
 	import cubegameThumbnail from '$lib/assets/project-thumbnails/cubegame.png?enhanced';
 	import circuitCourtThumbnail from '$lib/assets/project-thumbnails/circuit-court.png?enhanced';
@@ -16,24 +15,12 @@
 	import cs334GraphicsThumbnail from '$lib/assets/project-thumbnails/cs334-graphics.png?enhanced';
 </script>
 
-<header class="sticky top-0 z-50 w-full">
-	<div class="black-glass shadow-light m-2 flex w-max items-center gap-x-2 rounded-full">
-		<enhanced:img
-			src={headshotImg}
-			alt="A really pretty face"
-			width="40"
-			class="shadow-light rounded-full border-1 border-black"
-		/>
-		<p class="pr-4 text-lg">
-			<a href="/" class="font-bold">JAXSON PAHUKULA</a> <span class="text-primary">/</span> Projects
-		</p>
-	</div>
-</header>
-<main class="flex md:min-w-[80%] flex-col gap-y-10 p-6">
-	<h1 class="text-center text-shadow-lg">Project Gallery</h1>
-	<h2 class="text-center italic text-shadow-lg">My favorites</h2>
+<Header page="Projects"/>
+<main class="flex md:max-w-[80%] flex-col gap-y-10 p-6 items-center">
+	<h1 class="text-shadow-lg">Project Gallery</h1>
+	<h2 class="italic text-shadow-lg">My favorites</h2>
 	{#snippet big_project(title: string, desc: string | string[], imgSrc: any, enhanced: boolean = true)}
-		<div class="black-glass shadow-light m-auto min-h-[200px] max-w-[800px] rounded-2xl md:grid md:grid-cols-[2fr_1fr]">
+		<div class="black-glass shadow-light min-h-[200px] max-w-[800px] rounded-2xl md:grid md:grid-cols-[2fr_1fr]">
 			<div class="p-4">
 				<h2><span class="text-primary">-&gt</span>&nbsp{title}</h2>
 				{#if typeof desc === 'string'}
@@ -79,13 +66,13 @@
 		factoryScriptThumbnail
 	)}
 	{#snippet small_project(title: string, desc: string | string[], imgSrc: any, enhanced: boolean = true)}
-		<div class="black-glass shadow-light w-auto max-w-[400px] rounded-2xl">
+		<div class="black-glass shadow-light w-auto max-w-[400px]a rounded-2xl">
 			<div class="px-4 py-2">
 				<h2><span class="text-primary">&gt</span>&nbsp{title}</h2>
 				{#if typeof desc === 'string'}
-					<p class="my-2 indent-4 leading-tight">{desc}</p>
+					<p class="my-4 indent-4 leading-tight">{desc}</p>
 				{:else}
-					<ul class="list-gt-bullet my-2">
+					<ul class="list-gt-bullet my-4">
 						{#each desc as line}
 							<li class="my-2 leading-[1.15]">{line}</li>
 						{/each}
@@ -104,7 +91,7 @@
 		</div>
 	{/snippet}
 	<h2 class="mt-14 text-center italic text-shadow-lg">Other stuff I made</h2>
-	<Masonry gridGap="2rem">
+	<Masonry gridGap="3rem">
 		{@render small_project(
 			'Cubegame',
 			[

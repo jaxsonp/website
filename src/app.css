@@ -28,6 +28,14 @@
 		@apply text-3xl font-semibold;
 	}
 
+	h3 {
+		@apply text-2xl font-semibold;
+	}
+
+	h4 {
+		@apply text-xl;
+	}
+
 	a {
 		@apply hover:text-primary;
 	}

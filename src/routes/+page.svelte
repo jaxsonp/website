@@ -15,14 +15,14 @@
 	import SpotifyIcon from '$lib/assets/icons/SpotifyIcon.svelte';
 </script>
 
-<div class="flex grow flex-col items-center justify-center">
-	<div style="display: flex; flex-direction: column; align-items: center;">
+<div class="flex grow flex-col items-center justify-center mx-2">
+	<div class="flex flex-col">
 		<enhanced:img
 			src={headshotImg}
 			alt="A really pretty face"
-			class="shadow-light relative top-6 h-[120px] w-[120px] rounded-full border-2 border-black"
+			class="shadow-light relative top-6 h-[120px] w-[120px] rounded-full border-2 border-black m-auto"
 		/>
-		<h1 class="z-10 mt-0 leading-[0.75]" style="margin-top: 0; line-height: 0.75; font-size: 48px; z-index: 1;">
+		<h1 class="z-10 mt-0 leading-[0.75] text-center" style="margin-top: 0; line-height: 0.75; font-size: 48px; z-index: 1;">
 			JAXSON PAHUKULA
 		</h1>
 	</div>

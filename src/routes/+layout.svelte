@@ -25,7 +25,7 @@
 	let { children } = $props();
 </script>
 
-<canvas bind:this={canvas} class="fixed -z-50 h-screen w-screen"></canvas>
+<canvas bind:this={canvas} class="fixed top-0 left-0 -z-50 h-screen w-screen"></canvas>
 <div class="flex min-h-screen flex-col items-center">
 	{@render children()}
 </div>
