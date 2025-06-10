@@ -1,36 +1,44 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	// stylin
+	import { onMount } from 'svelte';
+
 	import '../app.css';
 
 	// background stuff
 	import { initializeSky, resizeSky, drawStars } from '$lib/stars';
-	if (browser) {
-		window.addEventListener('load', () => {
-			let canvas = document.getElementById('background') as HTMLCanvasElement;
-			if (canvas !== null) {
-				initializeSky(canvas);
 
-				const resizeHandler = () => {
-					canvas.width = window.innerWidth;
-					canvas.height = window.innerHeight;
-					resizeSky(canvas.width, canvas.height);
-					drawStars();
-				};
-				window.addEventListener('resize', resizeHandler, false);
+	let canvas: HTMLCanvasElement;
+	onMount(() => {
+		initializeSky(canvas);
 
-				// initializing
-				resizeHandler();
-			}
-		});
-	}
+		const resizeHandler = () => {
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			resizeSky(canvas.width, canvas.height);
+			drawStars();
+		};
+		window.addEventListener('resize', resizeHandler, false);
+
+		// initializing
+		resizeHandler();
+	});
 
 	let { children } = $props();
 </script>
 
-<canvas id="background" class="fixed left-0 top-0 -z-50 h-full w-full"></canvas>
-<div class=" flex w-full justify-center">
-	<main class="mx-4 min-h-screen w-full lg:m-0 lg:w-[950px] xl:w-[1000px]">
-		{@render children()}
-	</main>
+<canvas bind:this={canvas} class="fixed top-0 left-0 -z-50 h-screen w-screen"></canvas>
+<div class="flex min-h-screen flex-col items-center">
+	{@render children()}
 </div>
+
+<style>
+	canvas {
+		background: rgb(15, 15, 40);
+		background: linear-gradient(
+			-2deg,
+			rgba(25, 74, 165, 1) 0%,
+			rgba(24, 52, 107, 1) 10%,
+			rgba(17, 35, 71, 1) 25%,
+			rgba(15, 15, 20, 1) 100%
+		);
+	}
+</style>

@@ -13,13 +13,14 @@
 
 <TimelineItem>
 	<TimelineOppositeContent slot="opposite-content" style="margin-left: 0;">
-		<p class="max-w-[90px]">{time}</p>
+		<p class="hidden max-w-[100px] md:block">{time}</p>
 	</TimelineOppositeContent>
 	<TimelineSeparator>
-		<TimelineDot style="background-color: rgb(var(--color-primary));" />
+		<TimelineDot style="background-color: var(--color-secondary);" />
 		<TimelineConnector />
 	</TimelineSeparator>
 	<TimelineContent style="margin-bottom: 2rem;">
+		<p class="italic md:hidden">{time}</p>
 		{@render children()}
 	</TimelineContent>
 </TimelineItem>

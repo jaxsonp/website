@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { type Component } from 'svelte';
-	import type { Project } from '$lib/types'
 
-	import SectionTitle from '$lib/components/SectionTitle.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
-	import headshotImg from '$lib/assets/headshot.jpg';
+	import headshotImg from '$lib/assets/headshot.jpg?enhanced';
+
 	import InstagramIcon from '$lib/assets/icons/InstagramIcon.svelte';
 	import GithubIcon from '$lib/assets/icons/GithubIcon.svelte';
 	import LinkedInIcon from '$lib/assets/icons/LinkedInIcon.svelte';
@@ -12,114 +12,83 @@
 	import LeetcodeIcon from '$lib/assets/icons/LeetcodeIcon.svelte';
 	import RedditIcon from '$lib/assets/icons/RedditIcon.svelte';
 	import EmailIcon from '$lib/assets/icons/EmailIcon.svelte';
-
-	import projectFile from '$lib/projects.json';
 	import SpotifyIcon from '$lib/assets/icons/SpotifyIcon.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	let featuredProjects: Project[] = projectFile.featured;
-	featuredProjects.forEach((project) => {
-		project.tags.sort();
-		project.links.sort();
-	});
 </script>
 
-{#snippet bullet()}
-	<p class="inline font-bold text-secondary">{'> '}</p>
-{/snippet}
-
-<div class="flex h-full w-full flex-col items-center">
-	<div class="my-12 flex flex-col items-center space-y-6">
-		<img
+<div class="flex grow flex-col items-center justify-center mx-2">
+	<div class="flex flex-col">
+		<enhanced:img
 			src={headshotImg}
-			class="w-[175px] rounded-full border-2 border-black shadow-light shadow-white/50"
-			alt="Me"
+			alt="A really pretty face"
+			class="shadow-light relative top-6 h-[120px] w-[120px] rounded-full border-2 border-black m-auto"
 		/>
-		<div class="mt-4">
-			<p class="text-2xl text-white">Hi, I'm</p>
-			<h1 class="underline-accent text-6xl font-bold">
-				Jaxson<br />Pahukula
-			</h1>
-		</div>
+		<h1 class="z-10 mt-0 leading-[0.75] text-center" style="margin-top: 0; line-height: 0.75; font-size: 48px; z-index: 1;">
+			JAXSON PAHUKULA
+		</h1>
 	</div>
-	<div class="black-glass rounded-t-3xl px-2 py-4 md:w-3/4 md:px-8 xl:px-12">
-		<p class="mt-8 px-[10%] indent-8">
-			Hi, I'm Jaxson, and you've just found my website. I'm from Hawaiʻi, and I'm studying computer
-			science student at Purdue University. I like programming and playing music.
+
+	<main class="black-glass shadow-light mb-8 rounded-2xl px-6 *:text-center">
+		<p>
+			Hi, welcome to my website, have a cookie<br />
+			<script>
+				document.cookie = 'cookie=🍪';
+			</script>
 		</p>
+
 		<div class="flex justify-center">
-			<div class="flex flex-col items-start gap-y-1 rounded-xl p-4 px-10">
-				<a href="mailto:jaxpahu@gmail.com" target="_blank" class="group">
-					{@render bullet()}
-					<p class="inline underline group-hover:text-primary">jaxpahu@gmail.com</p>
-				</a>
-				<a href="https://github.com/jaxsonp" target="_blank" class="group">
-					{@render bullet()}
-					<p class="inline group-hover:text-primary">Github</p>
-				</a>
-				<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank" class="group">
-					{@render bullet()}
-					<p class="inline group-hover:text-primary">LinkedIn</p>
-				</a>
-				<a href="/#socials" class="group">
-					{@render bullet()}
-					<p class="inline italic group-hover:text-primary">More socials...</p>
-				</a>
-			</div>
+			<ul class="list-gt-bullet flex w-fit flex-col items-start text-left">
+				<li>
+					<a href="mailto:jaxpahu@gmail.com" target="_blank">jaxpahu@gmail.com</a>
+				</li>
+				<li>
+					<a href="https://github.com/jaxsonp" target="_blank">Github</a>
+				</li>
+				<li>
+					<a href="https://www.linkedin.com/in/jaxsonp/" target="_blank">LinkedIn</a>
+				</li>
+			</ul>
 		</div>
-		<SectionTitle id="projects">Projects</SectionTitle>
-		<p class="m-4 text-center">
-			Check out <a href="/projects" class="underline">my project gallery {'>'}</a>
+
+		<p>───━━━━━━━━━━━━━━━───</p>
+
+		<p>
+			Browse my <a href="/projects" class="text-secondary hover:text-primary underline">Project Gallery</a>
+			<br /><br />
+			If you’re a hiring manager, check out
+			<a href="/experience" class="text-secondary hover:text-primary underline">my CV</a>
 		</p>
-		<p class="mt-4 text-center">Or check out the projects I host here:</p>
-		<div class="flex justify-center">
-			<div class="flex flex-col items-start gap-y-1 rounded-xl px-10">
-				<a href="/" target="_blank" class="group">
-					{@render bullet()}
-					<p class="inline underline group-hover:text-primary">TODO put stuff here</p>
-				</a>
-			</div>
-		</div>
-		<SectionTitle id="cv">My CV</SectionTitle>
-		<p class="text-center underline">
-			<a href="/career">
-				CV Page (WIP) {'>'}
-			</a>
-		</p>
-		<p class="text-center underline">
-			<a href="/Resume-Jaxson-Pahukula.pdf" target="_blank">
-				My resume {'>'}
-			</a>
-		</p>
-		<SectionTitle id="socials">Socials</SectionTitle>
-		<p class="text-center">Stalk me on:</p>
-		<div class="flex w-full justify-center">
+
+		<p>───━━━━━━━━━━━━━━━───</p>
+
+		<p style="margin-bottom: 12px;">My digital footprint:</p>
+		<ul class="mb-6 grid list-inside list-none grid-cols-[auto_auto] justify-center gap-x-3 gap-y-1">
 			{#snippet social_link(text: string, href: string, Icon: Component)}
-				<a {href} target="_blank" class="group flex items-center gap-4 p-[3px]">
-					<Icon class="h-6 w-6" />
-					<p class="w-min text-xl group-hover:text-primary">
+				<li class="social-link">
+					<a {href} target="_blank" class="flex items-center gap-2">
+						<Icon class="h-4 w-4" />
 						{text}
-					</p>
-				</a>
+					</a>
+				</li>
 			{/snippet}
-			<div class="my-4 inline-grid gap-x-4 md:grid-cols-2">
-				{@render social_link('Email', 'mailto:jaxpahu@gmail.com', EmailIcon)}
-				{@render social_link(
-					'Facebook',
-					'https://www.facebook.com/profile.php?id=100086394281851',
-					FacebookIcon
-				)}
-				{@render social_link('Github', 'https://github.com/jaxsonp', GithubIcon)}
-				{@render social_link('Instagram', 'https://www.instagram.com/jaxson.mp/', InstagramIcon)}
-				{@render social_link('Leetcode', 'https://leetcode.com/colbyjack/', LeetcodeIcon)}
-				{@render social_link('LinkedIn', 'https://www.linkedin.com/in/jaxsonp/', LinkedInIcon)}
-				{@render social_link('Reddit', 'https://www.reddit.com/user/cojack808/', RedditIcon)}
-				{@render social_link(
-					'Spotify',
-					'https://open.spotify.com/user/4jtq72to3phoh40qj10gghrrm?si=8b5e640043c24fd1',
-					SpotifyIcon
-				)}
-			</div>
-		</div>
-		<Footer />
-	</div>
+			{@render social_link('Email', 'mailto:jaxpahu@gmail.com', EmailIcon)}
+			{@render social_link('Facebook', 'https://www.facebook.com/profile.php?id=100086394281851', FacebookIcon)}
+			{@render social_link('Github', 'https://github.com/jaxsonp', GithubIcon)}
+			{@render social_link('Instagram', 'https://www.instagram.com/jaxson.mp/', InstagramIcon)}
+			{@render social_link('Leetcode', 'https://leetcode.com/colbyjack/', LeetcodeIcon)}
+			{@render social_link('LinkedIn', 'https://www.linkedin.com/in/jaxsonp/', LinkedInIcon)}
+			{@render social_link('Reddit', 'https://www.reddit.com/user/cojack808/', RedditIcon)}
+			{@render social_link(
+				'Spotify',
+				'https://open.spotify.com/user/4jtq72to3phoh40qj10gghrrm?si=8b5e640043c24fd1',
+				SpotifyIcon
+			)}
+		</ul>
+	</main>
 </div>
+<Footer />
+
+<style>
+	p {
+		margin: 2rem 0;
+	}
+</style>

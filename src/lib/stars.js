@@ -4,42 +4,32 @@ const STARS_PER_PX = STARS_PER_MIL_PIX / 1_000_000;
 
 const MAX_STAR_SIZE = 1.75;
 
-let ctx: CanvasRenderingContext2D | null = null;
-let width: number;
-let height: number;
+let ctx = null;
+let width;
+let height;
 let maxWidth = 0;
 let maxHeight = 0;
-
-let stars: Star[];
+let stars;
 
 class Star {
-	x: number;
-	y: number;
-	size: number;
-
-	constructor(x: number, y: number) {
+	constructor(x, y) {
 		this.x = x;
 		this.y = y;
 		this.size = Math.random() ** 2 * MAX_STAR_SIZE;
 	}
 }
 
-export function initializeSky(canvas: HTMLCanvasElement) {
+export function initializeSky(canvas) {
 	stars = [];
 	width = 0;
 	height = 0;
 
 	ctx = canvas.getContext('2d');
-	if (ctx == null) {
-		console.error('Failed to get context from canvas');
-		return;
-	}
 }
 
-export function resizeSky(w: number, h: number) {
+export function resizeSky(w, h) {
 	// generates stars in a rectangle
-	function generateStars(x: number, y: number, w: number, h: number) {
-		console.log('generating stars', x, y, w, h);
+	function generateStars(x, y, w, h) {
 		for (let px_y = y; px_y < y + h; px_y++) {
 			for (let px_x = x; px_x < x + w; px_x++) {
 				if (Math.random() < STARS_PER_PX) {
@@ -66,7 +56,6 @@ export function drawStars() {
 	if (ctx == null) {
 		return;
 	}
-	console.debug('drawing stars');
 
 	ctx.fillStyle = 'white';
 	for (let i = 0; i < stars.length; i++) {
