@@ -65,8 +65,8 @@
 				</p>
 			</TimelineEntry>
 			<TimelineEntry time="Jan-Dec 2023">
-				<h3>Applied Research Laboratory at UH</h3>
-				<h4>Software Dev. Intern - Kihei, HI</h4>
+				<h3>Data Science Labs, Purdue University</h3>
+				<h4>Lab Instructor</h4>
 				<p>
 					As a lab instructor, I taught students to apply concepts from Calculus I and II to basic data science problems
 					in a lab setting. I led students in engaging lab projects using Jupyter notebooks, Python, Raspberry Pis, and

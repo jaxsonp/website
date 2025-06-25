@@ -15,8 +15,8 @@
 	import cs334GraphicsThumbnail from '$lib/assets/project-thumbnails/cs334-graphics.png?enhanced';
 </script>
 
-<Header page="Projects"/>
-<main class="flex md:max-w-[80%] flex-col gap-y-10 p-6 items-center">
+<Header page="Projects" />
+<main class="flex flex-col items-center gap-y-10 p-6 md:max-w-[80%]">
 	<h1 class="text-shadow-lg">Project Gallery</h1>
 	<h2 class="italic text-shadow-lg">My favorites</h2>
 	{#snippet big_project(title: string, desc: string | string[], imgSrc: any, enhanced: boolean = true)}
@@ -60,13 +60,13 @@
 	{@render big_project(
 		'FactoryScript',
 		[
-			'FactoryScript is an interpreted, graph-based esolang. it is mostly a gag language, and the interpreter is written in rust.',
-			'programs (factories) are graphs where the nodes (stations) are connected by unicode box characters (conveyor belts).',
+			'FactoryScript is an interpreted, graph-based esolang. It is mostly a gag language, and the interpreter is written in rust.',
+			'Programs (factories) are graphs where the nodes (stations) are connected by unicode box characters (conveyor belts).',
 		],
 		factoryScriptThumbnail
 	)}
 	{#snippet small_project(title: string, desc: string | string[], imgSrc: any, enhanced: boolean = true)}
-		<div class="black-glass shadow-light w-auto max-w-[400px]a rounded-2xl">
+		<div class="black-glass shadow-light max-w-[400px]a w-auto rounded-2xl">
 			<div class="px-4 py-2">
 				<h2><span class="text-primary">&gt</span>&nbsp{title}</h2>
 				{#if typeof desc === 'string'}
